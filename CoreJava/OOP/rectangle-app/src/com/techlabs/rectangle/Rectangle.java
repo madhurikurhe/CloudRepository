@@ -15,7 +15,7 @@ public class Rectangle {
 			System.out.println("Height is:" + this.height);
 		}
 
-		if (height > 100) {
+		else if (height > 100) {
 			this.height = 100;
 			System.out.println("Height is:" + this.height);
 		}
@@ -32,8 +32,7 @@ public class Rectangle {
 		if (width < 1) {
 			this.width = 1;
 			System.out.println("Width is:" + this.width);
-		}
-		if (width > 100) {
+		} else if (width > 100) {
 			this.width = 100;
 			System.out.println("Width is:" + this.width);
 		}
