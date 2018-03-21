@@ -5,6 +5,7 @@ public class Rectangle {
 	private int width;
 	private String color;
 
+	
 	public int getHeight() {
 		return height;
 	}
