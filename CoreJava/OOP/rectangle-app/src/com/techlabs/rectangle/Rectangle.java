@@ -3,45 +3,58 @@ package com.techlabs.rectangle;
 public class Rectangle {
 	private int height;
 	private int width;
-	private int area;
+	private String color;
 
 	public int getHeight() {
 		return height;
 	}
 
 	public void setHeight(int height) {
-		if (height < 1) {
-			this.height = 1;
 
-		}
+		this.height = checkRange(height);
+	}
 
-		else if (height > 100) {
-			this.height = 100;
-		}
+	public void setWidth(int width) {
 
-		else
-			this.height = height;
+		this.width = checkRange(width);
 	}
 
 	public int getWidth() {
 		return width;
 	}
 
-	public void setWidth(int width) {
-		if (width < 1) {
-			this.width = 1;
-		} else if (width > 100) {
-			this.width = 100;
-		}
+	public int checkRange(int parameter) {
 
-		else
-			this.width = width;
+		if (parameter < 1)
+			parameter = 1;
+		if (parameter > 100)
+			parameter = 100;
+		return parameter;
+
 	}
 
 	public int calculateArea() {
 
 		int area = this.height * this.width;
 		return area;
+	}
+
+	public String checkColor(String color2) {
+		if (color2 == "red" || color2 == "green" || color2 == "blue")
+			this.color = color2;
+		else
+			this.color = "red";
+
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = checkColor(color);
+
+	}
+
+	public String getColor() {
+		return color;
 	}
 
 }
