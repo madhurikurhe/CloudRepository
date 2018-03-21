@@ -26,9 +26,9 @@ public class Rectangle {
 	public int checkRange(int parameter) {
 
 		if (parameter < 1)
-			parameter = 1;
+			return parameter = 1;
 		if (parameter > 100)
-			parameter = 100;
+			return parameter = 100;
 		return parameter;
 
 	}
@@ -40,12 +40,13 @@ public class Rectangle {
 	}
 
 	public String checkColor(String color2) {
-		if (color2 == "red" || color2 == "green" || color2 == "blue")
-			this.color = color2;
-		else
-			this.color = "red";
+		if (color2.equalsIgnoreCase("red") || color2.equalsIgnoreCase("green")
+				|| color2.equalsIgnoreCase("blue"))
+			return this.color = color2;
 
-		return color;
+		return this.color = "red";
+
+		// return color;
 	}
 
 	public void setColor(String color) {
