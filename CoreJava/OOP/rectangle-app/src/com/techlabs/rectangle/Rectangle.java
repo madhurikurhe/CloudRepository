@@ -10,8 +10,16 @@ public class Rectangle {
 	}
 
 	public void setHeight(int height) {
-		if (height < 1 || height > 100)
-			System.out.println("Height is not in range");
+		if (height < 1) {
+			this.height = 1;
+			System.out.println("Height is:" + this.height);
+		}
+
+		if (height > 100) {
+			this.height = 100;
+			System.out.println("Height is:" + this.height);
+		}
+
 		else
 			this.height = height;
 	}
@@ -21,15 +29,22 @@ public class Rectangle {
 	}
 
 	public void setWidth(int width) {
-		if (width < 1 || width > 100)
-			System.out.println("Width is  not in range");
+		if (width < 1) {
+			this.width = 1;
+			System.out.println("Width is:" + this.width);
+		}
+		if (width > 100) {
+			this.width = 100;
+			System.out.println("Width is:" + this.width);
+		}
+
 		else
-		this.width = width;
+			this.width = width;
 	}
 
 	public int calculateArea() {
 
-		int area = height * width;
+		int area = this.height * this.width;
 		return area;
 	}
 

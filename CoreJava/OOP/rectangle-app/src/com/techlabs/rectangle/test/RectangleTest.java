@@ -6,12 +6,12 @@ public class RectangleTest {
 
 	public static void main(String[] args) {
 		Rectangle test = new Rectangle();
-		test.setHeight(100);
+		test.setHeight(101);
 		test.setWidth(-10);
 		
 		
 		System.out.println("Area of Rectangle is: " + test.calculateArea());
-
+        
 		
 
 	}
