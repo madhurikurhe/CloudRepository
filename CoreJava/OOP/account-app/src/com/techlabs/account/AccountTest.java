@@ -1,0 +1,40 @@
+package com.techlabs.account;
+
+public class AccountTest {
+	public static void main(String[] args) {
+
+		Account account1 = new Account(2000, "Madhuri", 2000);
+		Account account2 = new Account(2001, "Trisha");
+		printDetails(account1);
+		System.out.println("\nMain balance:"+ account1.getBalance());
+		
+		account1.withdraw(1000);
+		System.out.println("Balance after withdrawal:" + account1.getBalance());
+		
+		account1.deposit(1000);
+		System.out.println("Balance after deposit:" + account1.getBalance());
+		
+		
+
+		printDetails(account2);
+		System.out.println("Main balance:"+ account2.getBalance());
+		
+		account2.withdraw(400);
+		System.out.println("Balance after withdrawal:" + account2.getBalance());
+		
+		account2.deposit(1000);
+		System.out.println("Balance after deposit:" + account2.getBalance());
+		
+		
+	}
+
+	public static void printDetails(Account account) {
+
+		System.out.println("\nAccount Holder Name:" + account.getName());
+		System.out.println("Account No:" + account.getAccountNo());
+		//System.out.println("Main Balance:" + account.getBalance());
+		
+		
+
+	}
+}
