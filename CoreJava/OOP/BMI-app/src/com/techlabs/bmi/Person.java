@@ -47,4 +47,29 @@ public class Person {
 			this.weight = this.weight - 1;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+
+	public double getHeight() {
+		return height;
+	}
+
+
+	public int getWeight() {
+		return weight;
+	}
+
+
+	public int getAge() {
+		return age;
+	}
+
+
+	public Gender getGender() {
+		return gender;
+	}
+
+
 }
