@@ -19,34 +19,33 @@ public class Person {
 	public void eat(int meal) {
 		if (meal > 2)
 			this.weight = this.weight + 1;
-		else
 			this.weight = weight;
 	}
 
 	public double calculateBMI() {
-		double BMI = 0;
-		BMI = (this.weight) / (this.height * this.height);
-		bodyStructure(BMI);
-		return BMI;
+	 return  (this.weight) / (this.height * this.height);
+	
 	}
 
-	public void bodyStructure(double BMI) {
-		System.out.println("BMI is:" +BMI);
+	public String getBodyStructure() {
+
+		double BMI = calculateBMI();
 		if (BMI < 18.5)
-			System.out.println("You are Underweight");
-		else if (BMI > 18.5 & BMI < 25)
-			System.out.println("You are Normal");
-		else if (BMI > 25 & BMI < 30)
-			System.out.println("You are overweight");
-		else
-			System.out.println("You are obese");
+			return "underweight";
+
+		if (BMI > 18.5 & BMI < 25)
+			return "normal";
+
+		if (BMI > 25 & BMI < 30)
+			return "overweight";
+
+		return "obese";
 
 	}
 
 	public void workout(int time) {
 		if (time > 45)
 			this.weight = this.weight - 1;
-		else
 			this.weight = weight;
 	}
 
