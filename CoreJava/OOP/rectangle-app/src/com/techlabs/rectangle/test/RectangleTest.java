@@ -8,8 +8,21 @@ public class RectangleTest {
 
 	public static void main(String[] args) {
 		// caseStudy1();
+		// caseStudy2();
+		Rectangle r1 = new Rectangle();
+		r1.setHeight(10);
+		r1.setWidth(20);
+		Rectangle r2 = r1;
+		r2.setWidth(40);
+		r2=null;
+		System.out.println("Width of R1:" + r1.getWidth());
+		System.out.println("Width of R2:" + r2.getWidth());
+
+	}
+
+	private static void caseStudy2() {
 		Rectangle[] arr = new Rectangle[3];
-		int SIZE= Array.getLength(arr);
+		int SIZE = Array.getLength(arr);
 		int sum = 0;
 		for (int i = 0; i < SIZE; i++) {
 			Rectangle r = new Rectangle();
@@ -43,8 +56,7 @@ public class RectangleTest {
 
 	public static void printDetails(Rectangle rectangle) {
 
-		System.out
-				.println("Area of Rectangle is: " + rectangle.calculateArea());
+		System.out.println("Area of Rectangle is: " + rectangle.calculateArea());
 		System.out.println("Height is:" + rectangle.getHeight());
 		System.out.println("Width is:" + rectangle.getWidth());
 		System.out.println("Color is:" + rectangle.getColor());
