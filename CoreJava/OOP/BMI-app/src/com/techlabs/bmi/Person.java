@@ -18,8 +18,7 @@ public class Person {
 
 	public void eat(int meal) {
 		if (meal > 2)
-			this.weight = this.weight + 1;
-			this.weight = weight;
+			 this.weight= this.weight + 1;
 	}
 
 	public double calculateBMI() {
@@ -46,7 +45,6 @@ public class Person {
 	public void workout(int time) {
 		if (time > 45)
 			this.weight = this.weight - 1;
-			this.weight = weight;
 	}
 
 }
