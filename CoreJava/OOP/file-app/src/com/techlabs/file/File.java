@@ -9,38 +9,25 @@ import java.io.IOException;
 public class File {
 	private static final String FILENAME = "D:\\CloudRepository\\CoreJava\\OOP\\fileHandling\\prog.txt";
 
-	public void write() {
+	public void writeFile() throws IOException {
 
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME))) {
-
-			String content = "Welcome to swabhav techlabs";
-
-			bw.write(content);
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-		}
+		BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME));
+		String content = "Welcome to swabhav techlabs";
+		bw.write(content);
+		bw.close();
 
 	}
 
-	public void read() {
+	public void readFile() throws IOException {
 		BufferedReader br = null;
-		try {
-			br = new BufferedReader(new FileReader(FILENAME));
-			String line = br.readLine();
-			while (line != null) {
-				System.out.println(line);
-				line = br.readLine();
-			}
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
+		br = new BufferedReader(new FileReader(FILENAME));
+		String Line = br.readLine();
+		while (Line != null) {
+			System.out.println(Line);
+			Line = br.readLine();
 		}
 
+		br.close();
 	}
 
 }
