@@ -12,7 +12,7 @@ public class Account {
 	}
 
 	public Account(int accountNo, String name) {
-		this(accountNo,name,1000);
+		this(accountNo, name, 3000);
 	}
 
 	public void withdraw(int amount) {
@@ -22,6 +22,13 @@ public class Account {
 
 	public void deposit(int amount) {
 		balance = balance + amount;
+	}
+
+	public Account whoIsRich(Account secondAccount) {
+		if (balance < secondAccount.balance)
+			return secondAccount;
+		
+		return this;
 	}
 
 	public int getBalance() {
