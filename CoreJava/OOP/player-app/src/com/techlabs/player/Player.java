@@ -3,8 +3,12 @@ package com.techlabs.player;
 public class Player {
 	private String name;
 	private int age;
-	private static int playerID = 1000;
 	private int id;
+
+	private static int playerID;
+	static {
+		playerID = 1000;
+	}
 
 	public Player(String name, int age) {
 		this.name = name;
