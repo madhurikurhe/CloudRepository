@@ -4,11 +4,13 @@ public class Account {
 	private int accountNo;
 	private String name;
 	private int balance;
+	private static int numberOfAccount = 0;
 
 	public Account(int accountNo, String name, int balance) {
 		this.accountNo = accountNo;
 		this.name = name;
 		this.balance = balance;
+		numberOfAccount++;
 	}
 
 	public Account(int accountNo, String name) {
@@ -20,6 +22,15 @@ public class Account {
 			balance = balance - amount;
 	}
 
+	public int noOfAccount() {
+		return numberOfAccount;
+	}
+
+	public static int headCount() {
+		return numberOfAccount;
+
+	}
+
 	public void deposit(int amount) {
 		balance = balance + amount;
 	}
@@ -27,7 +38,7 @@ public class Account {
 	public Account whoIsRich(Account secondAccount) {
 		if (balance < secondAccount.balance)
 			return secondAccount;
-		
+
 		return this;
 	}
 

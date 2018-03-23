@@ -4,6 +4,11 @@ public class AccountTest {
 	public static void main(String[] args) {
 
 		//caseStudy1();
+		Account account1 = new Account(2000, "Madhuri", 1000);
+		Account account2 = new Account(2001, "Trisha");
+		Account account3 = new Account(2002, "Yadnya");
+		Account account4 = new Account(2002, "Yadnya");
+		System.out.println("No of Account holders:" +Account.headCount());
 
 	}
 
