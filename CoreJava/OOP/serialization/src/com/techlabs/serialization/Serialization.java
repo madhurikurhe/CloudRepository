@@ -22,8 +22,4 @@ public class Serialization {
 		fos.close();
 	}
 
-	public void setSalary(int i) {
-
-	}
-
 }
