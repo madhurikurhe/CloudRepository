@@ -1,5 +1,7 @@
 package com.techlabs.contact;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Contact {
@@ -18,10 +20,15 @@ public class Contact {
 	}
 
 	public void display() {
-		System.out.println("\n");
-		System.out.print("\tFirst Name:" + firstName);
-		System.out.print("\tLast Name:" + lastName);
-		System.out.print("\tEmail ID:" + email);
+		List<String> list = Arrays.asList();
+
+        String result = String.join(",", list);
+        System.out.println(result);
+
+	//	System.out.println("\n");
+		//System.out.print("\tFirst Name:" + firstName);
+		//System.out.print("\tLast Name:" + lastName);
+		//System.out.print("\tEmail ID:" + email);
 
 	}
 
@@ -33,7 +40,6 @@ public class Contact {
 		lastName = s.nextLine();
 		System.out.println("\nEnter Email:");
 		email = s.nextLine();
-		
 
 	}
 
