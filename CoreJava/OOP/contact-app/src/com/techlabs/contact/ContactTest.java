@@ -1,22 +1,27 @@
 package com.techlabs.contact;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-//import com.techlabs.employee.Employee;
-
 public class ContactTest {
-	static int i = 0;
+
+	static int index = 0;
+	static final int display = 1;
+	static final int add = 2;
+	static final int export = 3;
+	static final int exit = 4;
+
 	private static final String COMMA_DELIMITER = ",";
 	private static final String LINE_SEPARATOR = "\n";
 
-	public static void main(String args[]) throws Exception {
+	public static <var> void main(String args[]) throws Exception {
 		Contact[] contact = new Contact[3];
 		Scanner s = new Scanner(System.in);
-		String ch;
+		int ch;
 		List contactList = new ArrayList();
 		do {
 			System.out.println("\n\tMENU");
@@ -25,39 +30,57 @@ public class ContactTest {
 			System.out.println("\t3.Export");
 			System.out.println("\t4.Exit");
 			System.out.println("\tEnter Your Choice:");
-			ch = s.nextLine();
+
+			ch = s.nextInt();
+			String firstName;
+			String lastName;
+			String email;
+
 			switch (ch) {
-			case "Display":
-				for (int index = 0; index < i; index++) {
-					contact[index].display();
+			case display:
+				for (int i = 0; i < index; i++) {
+					System.out.println("\n");
+					System.out.print("\tFirst Name:"
+							+ contact[i].getFirstName());
+					System.out.print("\tLast Name:" + contact[i].getLastName());
+					System.out.print("\tEmail ID:" + contact[i].getEmail());
 				}
 				break;
-			case "Add":
-
-				contact[i] = new Contact();
-				contact[i].add();
-				contactList.add(contact[i]);
-				i++;
-				System.out.println("i:" + i);
+			case add:
+				contact[index] = new Contact();
+				Scanner s1 = new Scanner(System.in);
+				System.out.println("\nEnter First Name:");
+				firstName = s1.nextLine();
+				contact[index].setFirstName(firstName);
+				System.out.println("\nEnter Last Name:");
+				lastName = s1.nextLine();
+				contact[index].setLastName(lastName);
+				System.out.println("\nEnter Email:");
+				email = s1.nextLine();
+				contact[index].setEmail(email);
+				index++;
 				break;
-			case "Export":
+			case export:
 				FileWriter fileWriter = null;
 				fileWriter = new FileWriter("Contact.csv");
-				Iterator it = contactList.iterator();
-				while (it.hasNext()) {
-					Contact e = (Contact) it.next();
-					fileWriter.append(e.getFirstName());
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(e.getLastName());
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(e.getEmail());
-					fileWriter.append(LINE_SEPARATOR);
+				BufferedWriter out = new BufferedWriter(
+						new FileWriter(
+								"D:\\CloudRepository\\CoreJava\\OOP\\contact-app\\Contact.csv"));
+				for (int i = 0; i < index; i++) {
+					out.write(contact[i].getFirstName());
+					out.write(COMMA_DELIMITER);
+					out.write(contact[i].getLastName());
+					out.write(COMMA_DELIMITER);
+					out.write(contact[i].getEmail());
+					out.newLine();
+
 				}
+				out.close();
 				System.out.println("Write to CSV file Succeeded!!!");
 				fileWriter.close();
 
 				break;
 			}
-		} while (ch != "Exit");
+		} while (ch != exit);
 	}
 }
