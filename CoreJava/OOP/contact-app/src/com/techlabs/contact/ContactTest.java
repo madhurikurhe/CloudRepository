@@ -16,7 +16,7 @@ public class ContactTest {
 	public static void main(String args[]) throws Exception {
 		Contact[] contact = new Contact[3];
 		Scanner s = new Scanner(System.in);
-		int ch;
+		String ch;
 		List contactList = new ArrayList();
 		do {
 			System.out.println("\n\tMENU");
@@ -25,14 +25,14 @@ public class ContactTest {
 			System.out.println("\t3.Export");
 			System.out.println("\t4.Exit");
 			System.out.println("\tEnter Your Choice:");
-			ch = s.nextInt();
+			ch = s.nextLine();
 			switch (ch) {
-			case 1:
+			case "Display":
 				for (int index = 0; index < i; index++) {
 					contact[index].display();
 				}
 				break;
-			case 2:
+			case "Add":
 
 				contact[i] = new Contact();
 				contact[i].add();
@@ -40,7 +40,7 @@ public class ContactTest {
 				i++;
 				System.out.println("i:" + i);
 				break;
-			case 3:
+			case "Export":
 				FileWriter fileWriter = null;
 				fileWriter = new FileWriter("Contact.csv");
 				Iterator it = contactList.iterator();
@@ -58,6 +58,6 @@ public class ContactTest {
 
 				break;
 			}
-		} while (ch != 3);
+		} while (ch != "Exit");
 	}
 }
