@@ -1,14 +1,14 @@
 package com.techlabs.contact;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Contact {
+public class Contact implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String email;
-	static int count = 0;
 
 	public Contact(String fname, String lname, String email) {
 		this.firstName = fname;
@@ -17,10 +17,7 @@ public class Contact {
 	}
 
 	public Contact() {
-		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public String setEmail(String email) {
 		return this.email = email;
@@ -39,7 +36,7 @@ public class Contact {
 	}
 
 	public String getLastName() {
-		return firstName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {

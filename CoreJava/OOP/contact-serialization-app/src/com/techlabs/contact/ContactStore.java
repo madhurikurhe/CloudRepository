@@ -6,21 +6,32 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class ContactStore {
-	public static Contact[] deserialize(String fileName) throws Exception {
-		FileInputStream fis = new FileInputStream(fileName);
-		ObjectInputStream ois = new ObjectInputStream(fis);
-		Contact[] obj = (Contact[]) ois.readObject();
-		ois.close();
-		return obj;
+	private String fileName;
+
+	public ContactStore(String fileName) {
+		this.fileName = fileName;
 	}
 
-	public Contact serialize(Object obj, String fileName) throws Exception {
-		FileOutputStream fos = new FileOutputStream(fileName);
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(obj);
-		fos.close();
-		return (Contact) obj;
+	public Contact[] retrieve() throws Exception {
+		FileInputStream fileIn = new FileInputStream(fileName);
+		ObjectInputStream in = new ObjectInputStream(fileIn);
+		System.out.println("Deserialization Successful\n");
+		Object obj = in.readObject();
+		Contact[] contacts = (Contact[]) obj;
+		in.close();
+		fileIn.close();
+		return contacts;
+
 	}
 
+	public void save(Contact[] contact) throws Exception {
+
+		FileOutputStream fileOut = new FileOutputStream(fileName);
+		ObjectOutputStream out = new ObjectOutputStream(fileOut);
+		out.writeObject(contact);
+		out.close();
+		fileOut.close();
+		System.out.println("\nSerialization Successful\n");
+
+	}
 }
-

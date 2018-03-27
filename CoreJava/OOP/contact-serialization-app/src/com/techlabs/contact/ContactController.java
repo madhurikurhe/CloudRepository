@@ -4,22 +4,26 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-public class ContactTest {
+import com.techlabs.contact.test.ContactStoreTest;
 
+public class ContactController {
 	static int index = 0;
-	static final int display = 1;
-	static final int add = 2;
-	static final int export = 3;
-	static final int exit = 4;
-	static int ch;
+	static final int DISPLAY = 1;
+	static final int ADD = 2;
+	static final int EXPORT = 3;
+	static final int EXIT = 4;
+	static int choice;
 	static String fileName = "employee.ser";
 	private static final String COMMA_DELIMITER = ",";
 
 	public static void main(String args[]) throws Exception {
-		Contact[] contact = new Contact[3];
-		ContactStore cs = new ContactStore();
+		Contact[] contact = new Contact[10];
+		ContactStoreTest cst = new ContactStoreTest();
 		Scanner s = new Scanner(System.in);
-
+		ContactStore store = new ContactStore(fileName);
+		String firstName;
+		String lastName;
+		String email;
 		do {
 			System.out.println("\n\tMENU");
 			System.out.println("\t1.Display");
@@ -28,21 +32,21 @@ public class ContactTest {
 			System.out.println("\t4.Exit");
 			System.out.println("\tEnter Your Choice:");
 
-			ch = s.nextInt();
-			String firstName;
-			String lastName;
-			String email;
-			
-			switch (ch) {
-			case display:
+			choice = s.nextInt();
 
-				System.out.println("Object DeSerialized");
-				contact = cs.deserialize(fileName);
-				for(int i=0;i<index;i++)
-				System.out.println(contact[i].toString());
+			switch (choice) {
+			case DISPLAY:
+				Contact[] contacts = store.retrieve();
+
+				for (int i = 0; i < contacts.length; i++) {
+					System.out.println("FirstName:"
+							+ contacts[i].getFirstName());
+					System.out.println("LastName:" + contacts[i].getLastName());
+					System.out.println("Emaill:" + contacts[i].getEmail());
+				}
 				break;
-				
-			case add:
+
+			case ADD:
 				contact[index] = new Contact();
 				Scanner s1 = new Scanner(System.in);
 				System.out.println("\nEnter First Name:");
@@ -51,17 +55,17 @@ public class ContactTest {
 				System.out.println("\nEnter Last Name:");
 				lastName = s1.nextLine();
 				contact[index].setLastName(lastName);
-				System.out.println("\nEnter Email:");
+				System.out.println("\nEnter Email" + ":");
 				email = s1.nextLine();
 				contact[index].setEmail(email);
 				index++;
 				break;
-			case export:
+			case EXPORT:
 				FileWriter fileWriter = null;
 				fileWriter = new FileWriter("Contact.csv");
 				BufferedWriter out = new BufferedWriter(
 						new FileWriter(
-								"D:\\CloudRepository\\CoreJava\\OOP\\contact-app\\Contact.csv"));
+								"D:\\CloudRepository\\CoreJava\\OOP\\contact-serialization-app\\Contact.csv"));
 				for (int i = 0; i < index; i++) {
 					out.write(contact[i].getFirstName());
 					out.write(COMMA_DELIMITER);
@@ -76,10 +80,15 @@ public class ContactTest {
 				fileWriter.close();
 
 				break;
+			case EXIT:
+				store.save(contact);
+				int i = contact.length;
+				System.out.println("Size of Array:" + i);
+				System.out.println("Save test case passed");
 			}
-			
-		} while (ch != exit);
-		Contact contact1 = (Contact) cs.serialize(contact, fileName);
-		System.out.println("Object Serialized");
+
+		} while (choice != EXIT);
+
 	}
+
 }

@@ -25,28 +25,19 @@ public class SerializationTest {
 			student[i] = new Student();
 		}
 
-		student[0].setFirstName("Trisha");
-		student[1].setFirstName("Madhu");
-
-		student[0].setLastName("Kurhe");
-		student[1].setLastName("Unde");
-
-		student[0].setEmail("madhu");
-		student[1].setEmail("trisha");
-
-		/*
-		 * List<Student> obj; obj = new ArrayList<Student>();
-		 * 
-		 * Scanner s1 = new Scanner(System.in); for (int j = 0; j < 2; j++) {
-		 * System.out.println("\nEnter First Name:"); firstName = s1.nextLine();
-		 * student[index].setFirstName(firstName);
-		 * 
-		 * System.out.println("\nEnter Last Name:"); lastName = s1.nextLine();
-		 * student[index].setLastName(lastName);
-		 * 
-		 * System.out.println("\nEnter Email Name:"); email = s1.nextLine();
-		 * student[index].setEmail(email); obj.add(student[index]); index++; }
-		 */
+  
+		  Scanner s1 = new Scanner(System.in);
+		  for (int j = 0; j < 2; j++) {
+		  System.out.println("\nEnter First Name:"); firstName = s1.nextLine();
+		  student[index].setFirstName(firstName);
+		  
+		  System.out.println("\nEnter Last Name:"); lastName = s1.nextLine();
+		  student[index].setLastName(lastName);
+		  
+		  System.out.println("\nEnter Email Name:"); email = s1.nextLine();
+		  student[index].setEmail(email);
+		  index++; }
+		 
 		System.out.println("Student Details.....");
 		for (Student d : student) {
 			System.out.print("\n" + d.getFirstName());
