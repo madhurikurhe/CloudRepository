@@ -3,13 +3,11 @@ package com.techlabs.contact;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class ContactStore {
 		if(f.exists()){
 		FileInputStream fileIn = new FileInputStream(fileName);
 		ObjectInputStream in = new ObjectInputStream(fileIn);
-		System.out.println("Deserialization Successful\n");
+		@SuppressWarnings("unchecked")
 		List<Contact> contactList = (List<Contact>) in.readObject();
 		in.close();
 		fileIn.close();

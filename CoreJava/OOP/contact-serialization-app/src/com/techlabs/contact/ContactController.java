@@ -13,10 +13,11 @@ public class ContactController {
 	private static int choice;
 	private static String fileName = "contact.ser";
 	private static List<Contact> contactList = new ArrayList<Contact>();
-
+	private static ContactStore store = new ContactStore(fileName);
 	public static void main(String args[]) throws Exception {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-		ContactStore store = new ContactStore(fileName);
+		
 		 contactList = store.retrieve();
 	    
 		
@@ -30,61 +31,61 @@ public class ContactController {
 
 			choice = scanner.nextInt();
 
-			switchChoice(choice, contactList, store);
+			switchChoice(choice, contactList);
 
 		} while (choice != EXIT);
 
 	}
 
-	private static void switchChoice(int choice, List<Contact> contact,
-			ContactStore store) throws Exception, IOException {
+	private static void switchChoice(int choice, List<Contact> contact) throws Exception, IOException {
 
 		switch (choice) {
 
 		case DISPLAY:
-			display(store);
+			display();
 			break;
 
 		case ADD:
-			add(store);
+			add();
 			break;
 		case EXPORT:
 			store.export(contactList);
 
 			break;
 		case EXIT:
-			exit(store);
+			exit();
 		}
 	}
 
-	private static void exit(ContactStore store) throws Exception {
+	private static void exit() throws Exception {
 		store.save(contactList);
 	}
 
 
-	private static void add(ContactStore store) throws Exception {
+	private static void add() throws Exception {
 		String firstName;
 		String lastName;
 		String email;
 		Contact contact = new Contact();
-		Scanner s1 = new Scanner(System.in);
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("\nEnter First Name:");
-		firstName = s1.nextLine();
+		firstName = scanner.nextLine();
 		contact.setFirstName(firstName);
 
 		System.out.println("\nEnter Last Name:");
-		lastName = s1.nextLine();
+		lastName = scanner.nextLine();
 		contact.setLastName(lastName);
 
 		System.out.println("\nEnter Email" + ":");
-		email = s1.nextLine();
+		email = scanner.nextLine();
 		contact.setEmail(email);
 		contactList.add(contact);
 
 	}
 
-	private static void display(ContactStore store) throws Exception {
+	private static void display() throws Exception {
 		System.out.println("\nFirstName \t\tLastName\t\tEmail");
 		for (int i = 0; i < contactList.size(); i++) {
 			System.out.print("\n" + contactList.get(i).getFirstName());

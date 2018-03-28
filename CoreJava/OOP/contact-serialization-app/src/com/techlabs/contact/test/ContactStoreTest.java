@@ -14,6 +14,7 @@ public class ContactStoreTest {
 	    testRetrieve();
 	}
 
+	@SuppressWarnings("unused")
 	private static void testSave() throws Exception {
 		ContactStore cs = new ContactStore("contact.txt");
 		Contact contact = new Contact();
