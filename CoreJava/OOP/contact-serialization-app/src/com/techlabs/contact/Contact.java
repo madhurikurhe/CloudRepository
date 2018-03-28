@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Contact implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String firstName;
 	private String lastName;
 	private String email;
