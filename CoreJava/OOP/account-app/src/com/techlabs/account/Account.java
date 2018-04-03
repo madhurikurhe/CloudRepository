@@ -7,13 +7,16 @@ public class Account {
 	private static int numberOfAccount = 0;
 
 	public Account(int accountNo, String name, int balance) {
+		super();
 		this.accountNo = accountNo;
 		this.name = name;
 		this.balance = balance;
+
 		numberOfAccount++;
 	}
 
 	public Account(int accountNo, String name) {
+
 		this(accountNo, name, 3000);
 	}
 
@@ -54,6 +57,23 @@ public class Account {
 	public String getName() {
 		return name;
 
+	}
+
+	public boolean equals(Object acc2) {
+		if (acc2 instanceof Account) {
+			Account a = (Account) acc2;
+			return (getAccountNo() == a.getAccountNo()
+					&& getBalance() == a.getBalance() && getName() == a
+						.getName());
+		}
+		return false;
+
+	}
+
+	public String toString() {
+
+		return "\nAccount No:" + accountNo + " Name: " + name + " Balance: "
+				+ balance + super.toString();
 	}
 
 }
