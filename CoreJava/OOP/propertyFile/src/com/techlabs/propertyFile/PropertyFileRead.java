@@ -14,3 +14,4 @@ public class PropertyFileRead {
 		System.out.println(properties.getProperty("password"));
 	}
 }
+ 

@@ -3,20 +3,25 @@ package com.techlabs.comparator;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ComparableTest {
+public class ComparableTest extends ComparableDemo{
+	public ComparableTest(String string, double d, int i){
+		super(name,rating,year);
+	}
 	public static void main(String[] args)
 
 	{
-
+		ComparableTest c1=new ComparableTest("Movie1",8.3,2015);
+		ComparableTest c2=new ComparableTest("Movie2",8.4,2013);
+		ComparableTest c3=new ComparableTest("Movie3",8.5,2006);
+		ComparableTest c4=new ComparableTest("Movie4",8.6,2018);
 		ArrayList<ComparableDemo> list = new ArrayList<ComparableDemo>();
+        
+		list.add(c1);
+		list.add(c2);
+		list.add(c3);
+		list.add(c4);
+		
 
-		list.add(new ComparableDemo("Force Awakens", 8.3, 2015));
-
-		list.add(new ComparableDemo("Star Wars", 8.7, 1977));
-
-		list.add(new ComparableDemo("Empire Strikes Back", 8.8, 1980));
-
-		list.add(new ComparableDemo("Return of the Jedi", 8.4, 1983));
 
 		Collections.sort(list);
 
@@ -35,4 +40,10 @@ public class ComparableTest {
 		}
 
 	}
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

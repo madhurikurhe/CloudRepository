@@ -1,11 +1,11 @@
 package com.techlabs.comparator;
 
-public class ComparableDemo implements Comparable<Object> {
-	private double rating;
+public abstract class ComparableDemo implements Comparable<Object> {
+	protected static double rating;
 
-	private String name;
+	protected static String name;
 
-	private int year;
+	protected static int year;
 
 	public ComparableDemo(String name, double rating, int year) {
 		this.name = name;
@@ -15,7 +15,6 @@ public class ComparableDemo implements Comparable<Object> {
 		this.year = year;
 
 	}
-	
 
 	public double getRating() {
 		return rating;
@@ -28,16 +27,11 @@ public class ComparableDemo implements Comparable<Object> {
 	public int getYear() {
 		return year;
 	}
+
 	public int compareTo(ComparableDemo m) {
 		return this.year - m.getYear();
 	}
 
-
-	@Override
-	public int compareTo(Object arg0) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 
