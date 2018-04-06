@@ -6,13 +6,14 @@ import java.util.List;
 public class FindGuitarTester {
 	public static void main(String[] args) {
 		Inventory inventory = new Inventory();
-		List<Guitar> guitars=initializeInventory(inventory);
-		
+		initializeInventory(inventory);
+		inventory.display();
+
 		GuitarSpec whatMadhuLikes = new GuitarSpec(Builder.FENDER,
 				"Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 17);
 		List<Guitar> matchingGuitars = inventory.search(whatMadhuLikes);
 		if (!matchingGuitars.isEmpty()) {
-			System.out.println("Madhu,U might like these guitars");
+			System.out.println("\nMadhu,U might like these guitars");
 			for (Iterator<Guitar> i = matchingGuitars.iterator(); i.hasNext();) {
 				Guitar guitar = (Guitar) i.next();
 				GuitarSpec spec = guitar.getSpec();
@@ -25,23 +26,22 @@ public class FindGuitarTester {
 			}
 		} else
 			System.out.println("No matching guitar found");
-	
+
 	}
 
-	private static List<Guitar> initializeInventory(Inventory inventory) {
+	private static void initializeInventory(Inventory inventory) {
 
-		List<Guitar> guitars=null;
-		inventory.addGuitar("V95693", 1500, Builder.FENDER, "Stratocastor",
+		inventory.addGuitar("V95693", 1800, Builder.FENDER, "BlackBeauty",
 				Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 17);
-		inventory.addGuitar("V95694", 1600, Builder.FENDER, "ocastor",
+		inventory.addGuitar("V95694", 1200, Builder.FENDER, "Babysnakes",
 				Type.ELECTRIC, Wood.CEDAR, Wood.MAHOGANY, 17);
 
-		inventory.addGuitar("V95695", 1800, Builder.GIBSON, "castor",
+		inventory.addGuitar("V95695", 1100, Builder.GIBSON, "Abel Axe",
 				Type.ACOUSTIC, Wood.BRAZILIAN_ROSEWOOD, Wood.COCOBOLO, 19);
-		
-		return guitars;
+
+		inventory.addGuitar("V95193", 1700, Builder.GIBSON, "Stratocastor",
+				Type.ACOUSTIC, Wood.BRAZILIAN_ROSEWOOD, Wood.COCOBOLO, 16);
+
 	}
-	
-	
 
 }
