@@ -8,10 +8,10 @@ public class InsufficientFundsException extends RuntimeException {
 	private String message;
 	public InsufficientFundsException(Account account) {
 		/*
-		 * super( "Account holder " + account.getName() + " of Account No:" +
-		 * account.getAccountNo() +
-		 * " Does not have sufficient Balance. \nBalance:" +
-		 * account.getBalance() + " Minimum balance must be Rs.500");
+		  super( "Account holder " + account.getName() + " of Account No:" +
+		  account.getAccountNo() +
+		  " Does not have sufficient Balance. \nBalance:" +
+		  account.getBalance() + " Minimum balance must be Rs.500");
 		 */
 		 message="Account holder " + account.getName() + " of Account No:" +
 				  account.getAccountNo() +
@@ -19,6 +19,7 @@ public class InsufficientFundsException extends RuntimeException {
 				  account.getBalance() + " Minimum balance must be Rs.500";
 	}
 	
+	@Override
 	public String getMessage(){
 		
 		return message;

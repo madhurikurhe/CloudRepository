@@ -22,16 +22,12 @@ public class Account {
 	}
 
 	public void withdraw(int amount) {
-	try{	
+
 		if ((balance - amount) < 500) {
 			balance = balance - amount;
 		}
-	}catch(InsufficientFundsException e){
-			System.out.println(e.getMessage());
-			//throw new InsufficientFundsException(Account.this);
-		}
 
-
+		throw new InsufficientFundsException(Account.this);
 	}
 
 	public int noOfAccount() {

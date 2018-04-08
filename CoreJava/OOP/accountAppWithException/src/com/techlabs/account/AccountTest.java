@@ -1,13 +1,17 @@
 package com.techlabs.account;
 
 public class AccountTest {
-	public static void main(String[] args){
+	public static void main(String[] args) throws InsufficientFundsException{
 
 		// caseStudy1();
 
 		// caseStudy2();
 			Account account1 = new Account(2000, "Madhuri", 1000);
+			try{
 			account1.withdraw(1000);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
 	}
 
 	private static void caseStudy2() {

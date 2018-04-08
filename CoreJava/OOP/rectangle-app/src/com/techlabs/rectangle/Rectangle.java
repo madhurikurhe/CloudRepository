@@ -1,62 +1,50 @@
 package com.techlabs.rectangle;
 
 public class Rectangle {
-	private int height;
-	private int width;
-	private String color;
+	public int height;
+	public int width;
+	public int area;
 
-	
 	public int getHeight() {
 		return height;
 	}
 
 	public void setHeight(int height) {
+		if (height < 1) {
+			this.height = 1;
+			System.out.println("Height is:" + this.height);
+		}
 
-		this.height = checkRange(height);
-	}
+		else if (height > 100) {
+			this.height = 100;
+			System.out.println("Height is:" + this.height);
+		}
 
-	public void setWidth(int width) {
-
-		this.width = checkRange(width);
+		else
+			this.height = height;
 	}
 
 	public int getWidth() {
 		return width;
 	}
 
-	public int checkRange(int parameter) {
+	public void setWidth(int width) {
+		if (width < 1) {
+			this.width = 1;
+			System.out.println("Width is:" + this.width);
+		} else if (width > 100) {
+			this.width = 100;
+			System.out.println("Width is:" + this.width);
+		}
 
-		if (parameter < 1)
-			return parameter = 1;
-		if (parameter > 100)
-			return parameter = 100;
-		return parameter;
-
+		else
+			this.width = width;
 	}
 
 	public int calculateArea() {
 
 		int area = this.height * this.width;
 		return area;
-	}
-
-	public String checkColor(String color2) {
-		if (color2.equalsIgnoreCase("red") || color2.equalsIgnoreCase("green")
-				|| color2.equalsIgnoreCase("blue"))
-			return this.color = color2;
-
-		return this.color = "red";
-
-		// return color;
-	}
-
-	public void setColor(String color) {
-		this.color = checkColor(color);
-
-	}
-
-	public String getColor() {
-		return color;
 	}
 
 }
