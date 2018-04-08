@@ -31,7 +31,7 @@ public class DogDoor {
 		allowedBarks.add(bark);
 	}
 
-	public List getAllowedBarks() {
+	public List<Bark> getAllowedBarks() {
 		return allowedBarks;
 
 	}

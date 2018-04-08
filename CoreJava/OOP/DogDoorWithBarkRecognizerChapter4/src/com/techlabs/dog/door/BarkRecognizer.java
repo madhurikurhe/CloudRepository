@@ -1,6 +1,5 @@
 package com.techlabs.dog.door;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class BarkRecognizer {
