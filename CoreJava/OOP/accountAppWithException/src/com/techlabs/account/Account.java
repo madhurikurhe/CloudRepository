@@ -23,8 +23,9 @@ public class Account {
 
 	public void withdraw(int amount) {
 
-		if ((balance - amount) < 500) {
+		if ((balance - amount) > 500) {
 			balance = balance - amount;
+			System.out.println("Balane:"+balance);	
 		}
 
 		throw new InsufficientFundsException(Account.this);

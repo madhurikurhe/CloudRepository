@@ -40,7 +40,7 @@ public class Inventory {
 		List matchingGuitars = new LinkedList();
 		for (Iterator i = inventory.iterator(); i.hasNext();) {
 			Instrument guitar = (Instrument) i.next();
-			if (Instrument.getSpec().matches(searchspec))
+			if (guitar.getSpec().matches(searchspec))
 				matchingGuitars.add(guitar);
 		}
 

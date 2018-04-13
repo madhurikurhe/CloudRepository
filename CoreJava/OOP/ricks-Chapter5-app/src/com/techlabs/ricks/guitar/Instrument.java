@@ -3,7 +3,7 @@ package com.techlabs.ricks.guitar;
 public abstract class Instrument {
 	private String serialNumber;
 	private double price;
-	private static InstrumentSpec spec;
+	private  InstrumentSpec spec;
 
 	public Instrument(String serialNumber, double price, InstrumentSpec spec) {
 		this.serialNumber = serialNumber;
@@ -27,7 +27,7 @@ public abstract class Instrument {
 		this.price = price;
 	}
 
-	public static InstrumentSpec getSpec() {
+	public  InstrumentSpec getSpec() {
 		return spec;
 	}
 

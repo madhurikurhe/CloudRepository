@@ -21,7 +21,7 @@ public class FindGuitarTester {
 			System.out.println("\nMadhu,U might like these guitars");
 			for (Iterator<Guitar> i = matchingGuitars.iterator(); i.hasNext();) {
 				Guitar guitar = (Guitar) i.next();
-				InstrumentSpec spec = Instrument.getSpec();
+				InstrumentSpec spec = guitar.getSpec();
 				System.out.println("\n" + spec.getBuilder() + " "
 						+ spec.getModel() + " " + spec.getType() + " Guitar\n"
 						+ spec.getBackwood() + " back and sides \n"
@@ -36,7 +36,7 @@ public class FindGuitarTester {
 			System.out.println("\nMadhu,U might like these Mandolins");
 			for (Iterator i = matchingMandolins.iterator(); i.hasNext();) {
 				Guitar guitar = (Guitar) i.next();
-				InstrumentSpec spec = Instrument.getSpec();
+				InstrumentSpec spec = guitar.getSpec();
 				System.out.println("\n" + spec.getBuilder() + " "
 						+ spec.getModel() + " " + spec.getType() + " Guitar\n"
 						+ spec.getBackwood() + " back and sides \n"
