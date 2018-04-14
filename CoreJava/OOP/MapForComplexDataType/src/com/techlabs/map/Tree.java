@@ -12,8 +12,16 @@ public class Tree {
 	}
 
 	public void display() {
-		System.out.println("Size of TreeMap:"+treeMap.size());
+		System.out.println("Size of TreeMap:" + treeMap.size());
 		treeMap.forEach((key, value) -> System.out.println(key + " : " + value));
+	}
+	
+	public void remove(){
+		Dog key = new Dog("red", 60);
+		if(treeMap.remove(key) != null)
+			System.out.println("Element removed from hashMap");
+		else
+			System.out.println("Element not Found");
 	}
 
 }

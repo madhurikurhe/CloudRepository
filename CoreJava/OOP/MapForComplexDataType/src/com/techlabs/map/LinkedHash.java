@@ -11,8 +11,17 @@ public class LinkedHash {
 	}
 
 	public void display() {
-		System.out.println("Size of LinkedHashMap:"+linkedHashMap.size());
-		linkedHashMap.forEach((key, value) -> System.out.println(key + " : " + value));
+		System.out.println("Size of LinkedHashMap:" + linkedHashMap.size());
+		linkedHashMap.forEach((key, value) -> System.out.println(key + " : "
+				+ value));
+	}
+
+	public void remove() {
+		Dog key = new Dog("red", 60);
+		if (linkedHashMap.remove(key) != null)
+			System.out.println("Element removed from hashMap");
+		else
+			System.out.println("Element not Found");
 	}
 
 }

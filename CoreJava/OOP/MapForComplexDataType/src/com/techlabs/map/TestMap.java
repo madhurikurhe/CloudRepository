@@ -6,9 +6,9 @@ public class TestMap {
 		Hash hash=new Hash();
 		Tree tree=new Tree();
 		LinkedHash link=new LinkedHash();
+		
 		caseStudyHashMap(hash);
 		caseStudyTreeMap(tree);
-	
 		caseStudyLinkedHashMap(link);
 	}
 
@@ -19,6 +19,8 @@ public class TestMap {
 		link.addToLinkedHashMap(new Dog("white",50),20);
 		
 		link.display();
+		link.remove();
+		link.display();
 	}
 
 	private static void caseStudyTreeMap(Tree tree) {
@@ -28,14 +30,17 @@ public class TestMap {
 		tree.addToTreeMap(new Dog("white",50),20);
 		
 		tree.display();
+		tree.remove();
+		tree.display();
 	}
 
 	private static void caseStudyHashMap(Hash hash) {
-		hash.addToHashMap(new Dog("red"),10);
-		hash.addToHashMap(new Dog("black"),12);
-		hash.addToHashMap(new Dog("white"),8);
-		hash.addToHashMap(new Dog("white"),20);
-		
+		hash.addToHashMap(new Dog("red",20),10);
+		hash.addToHashMap(new Dog("black",30),12);
+		hash.addToHashMap(new Dog("white",40),8);
+		hash.addToHashMap(new Dog("white",50),20);
+		hash.display();
+		hash.remove();
 		hash.display();
 	}
 

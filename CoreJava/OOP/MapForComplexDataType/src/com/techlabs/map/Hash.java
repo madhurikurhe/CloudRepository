@@ -14,4 +14,11 @@ public class Hash {
 		hashMap.forEach((key, value) -> System.out.println(key + " : " + value));
 	}
 
+	public void remove(){
+		Dog key = new Dog("red", 20);
+		if(hashMap.remove(key) != null)
+			System.out.println("Element removed from hashMap");
+		else
+			System.out.println("Element not Found");
+	}
 }
