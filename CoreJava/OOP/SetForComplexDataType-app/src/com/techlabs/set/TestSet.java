@@ -6,9 +6,9 @@ public class TestSet {
 		Hash hash = new Hash();
 		LinkedHashed link = new LinkedHashed();
 		
-		//caseStudyTree(tree);
+		caseStudyTree(tree);
 			
-	//	caseStudyHashSet(hash);
+	    caseStudyHashSet(hash);
 		
 	caseStudyLinkedHashSet(link);
 	
