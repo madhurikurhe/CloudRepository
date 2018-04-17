@@ -12,6 +12,7 @@ public class TestSet {
 		
 	caseStudyLinkedHashSet(link);
 	
+	
 	}
 
 	private static void caseStudyHashSet(Hash hash) {
