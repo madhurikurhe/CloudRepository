@@ -12,6 +12,12 @@ public class AccountTest {
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
+			Account account2 = new Account(2000, "Madhuri", 1000);
+			try{
+				account2.withdraw(1000);
+				}catch(Exception e){
+					System.out.println(e.getMessage());
+				}
 	}
 
 	private static void caseStudy2() {
