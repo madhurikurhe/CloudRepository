@@ -23,7 +23,7 @@ public class OCPTest {
 
 		System.out.println("Interest for holi festival:" + interest);
 		System.out.println("Interest for new year festival:" + interest1);
-		System.out.println("Interest for holi festival:" + interest2);
+		System.out.println("Normal Interest :" + interest2);
 		
 	}
 }
