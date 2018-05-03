@@ -13,6 +13,7 @@ public class ParserTest {
 	public static void main(String[] args) throws IOException {
 		URLLoader url=new URLLoader();
 		DiskLoader disk=new DiskLoader();
+		
 		Parser parser=new Parser(url);
 		System.out.println("File Loaded from URL");
 		TreeSet<Employee>emp= parser.getRecords();
