@@ -6,9 +6,7 @@ import java.util.Scanner;
 public class GameMain {
 	private Board board; 
 	private GameState currentState; 
-									
-	private Seed currentPlayer; 
-
+	private Mark currentPlayer; 
 	private static Scanner in = new Scanner(System.in); 
 
 	public GameMain() {
@@ -26,22 +24,22 @@ public class GameMain {
 			} else if (currentState == GameState.DRAW) {
 				System.out.println("It's Draw! Bye!");
 			}
-			currentPlayer = (currentPlayer == Seed.CROSS) ? Seed.NOUGHT
-					: Seed.CROSS;
+			currentPlayer = (currentPlayer == Mark.CROSS) ? Mark.NOUGHT
+					: Mark.CROSS;
 		} while (currentState == GameState.PLAYING);
 	}
 
 	public void initGame() {
 		board.init(); 
-		currentPlayer = Seed.CROSS; 
+		currentPlayer = Mark.CROSS; 
 		currentState = GameState.PLAYING; 
 	}
 
 	
-	public void playerMove(Seed theSeed) {
+	public void playerMove(Mark theSeed) {
 		boolean validInput = false; 
 		do {
-			if (theSeed == Seed.CROSS) {
+			if (theSeed == Mark.CROSS) {
 				System.out
 						.print("Player 'X', enter your move (row[1-3] column[1-3]): ");
 			} else {
@@ -51,7 +49,7 @@ public class GameMain {
 			int row = in.nextInt() - 1;
 			int col = in.nextInt() - 1;
 			if (row >= 0 && row < Board.ROWS && col >= 0 && col < Board.COLS
-					&& board.cells[row][col].content == Seed.EMPTY) {
+					&& board.cells[row][col].content == Mark.EMPTY) {
 				board.cells[row][col].content = theSeed;
 				board.currentRow = row;
 				board.currentCol = col;
@@ -63,9 +61,9 @@ public class GameMain {
 		} while (!validInput); 
 	}
 
-	public void updateGame(Seed theSeed) {
+	public void updateGame(Mark theSeed) {
 		if (board.hasWon(theSeed)) { 
-			currentState = (theSeed == Seed.CROSS) ? GameState.CROSS_WON
+			currentState = (theSeed == Mark.CROSS) ? GameState.CROSS_WON
 					: GameState.NOUGHT_WON;
 		} else if (board.isDraw()) { 
 			currentState = GameState.DRAW;

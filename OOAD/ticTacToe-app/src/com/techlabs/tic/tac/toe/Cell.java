@@ -1,7 +1,7 @@
 package com.techlabs.tic.tac.toe;
 
 public class Cell {
-	Seed content; 
+	Mark content; 
 	int row, col; 
 
 	public Cell(int row, int col) {
@@ -11,7 +11,7 @@ public class Cell {
 	}
 
 	public void clear() {
-		content = Seed.EMPTY;
+		content = Mark.EMPTY;
 	}
 
 	public void paint() {

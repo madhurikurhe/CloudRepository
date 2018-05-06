@@ -1,5 +1,5 @@
 package com.techlabs.tic.tac.toe;
 
-public enum Seed {
+public enum Mark {
 	EMPTY, CROSS, NOUGHT
 }
