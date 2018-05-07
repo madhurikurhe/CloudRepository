@@ -27,15 +27,15 @@ public class GameTest {
 	@Test
 	public void shouldSetCurrentStateToCrossWon() {
 		Game game=new Game();
-		game.setCurrentState(GameState.CROSS_WON);
-		assertTrue(GameState.CROSS_WON == game.getCurrentState());
+		game.setCurrentState(GameState.WON);
+		assertTrue(GameState.WON == game.getCurrentState());
 	}
 
 	@Test
 	public void shouldSetCurrentStateToNaughtWon() {
 		Game game=new Game();
-		game.setCurrentState(GameState.NOUGHT_WON);
-		assertTrue(GameState.NOUGHT_WON == game.getCurrentState());
+		game.setCurrentState(GameState.WON);
+		assertTrue(GameState.WON == game.getCurrentState());
 	}
 
 	@Test

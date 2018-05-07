@@ -10,24 +10,29 @@ import tic.tac.toe.Mark;
 
 public class BoardTest {
 
-
 	@Test
 	public void testToCheckIsBoardFull() {
 		Board b = new Board();
-		boolean status = b.isDraw();
+		boolean status = b.isBoardFull();
 		boolean expectedStatus = false;
 		assertTrue(expectedStatus == status);
 	}
 
 	@Test
 	public void testToCheckIsBoardClear() {
-		Board b = new Board();
-		Cell c=new Cell();
-		 b.init();
-		 assertTrue(c.getMark()==Mark.EMPTY);
-		 
+		//Board b = new Board();
+		Cell c = new Cell();
+		//b.init();
+		assertTrue(c.getMark() == Mark.EMPTY);
+
 	}
 
-	
-		
+	@Test
+	public void testToCheckInvalidMove() {
+		Board b = new Board();
+		b.setCurrentRow(10);
+		boolean actual = b.invalidMove(b.getCurrentRow());
+		assertTrue(true == actual);
+	}
+
 }

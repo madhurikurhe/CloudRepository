@@ -5,7 +5,7 @@ public class Board {
 
 	private Cell[] cells;
 	int currentRow, currentCol;
-
+	private Cell cell;
 	public Board() {
 		cells = new Cell[noOfCell];
 		for (int row = 0; row < noOfCell; ++row) {
@@ -31,13 +31,7 @@ public class Board {
 	}
 
 
-	public void init() {
-		for (int row = 0; row < noOfCell; ++row) {
-			cells[row].clear();
-		}
-	}
-
-	public boolean isDraw() {
+	public boolean isBoardFull() {
 		for (int row = 0; row < noOfCell; ++row) {
 			if (cells[row].getMark() == Mark.EMPTY) {
 				return false;
@@ -47,4 +41,22 @@ public class Board {
 		return true;
 	}
 
+	public boolean invalidMove(int row) {
+		if (row >= 0 && row < Board.noOfCell
+				&& getCells()[row].getMark() == Mark.EMPTY)
+			return false;
+		return true;
+
+	}
+
+	public void setLocation(int cellNumber, Mark mark) {
+	
+		cells[cellNumber].setMark(mark);
+	}
+	
+	public Cell getLocation(int cellNumber){
+		
+		return cell;
+		
+	}
 }

@@ -8,13 +8,11 @@ public class Game {
 	private Mark currentPlayer;
 	private static Scanner in = new Scanner(System.in);
 	ResultAnalyzer result = new ResultAnalyzer();
-
 	public Game() {
 		board = new Board();
 	}
 
 	public void initGame() {
-		board.init();
 		currentPlayer = Mark.CROSS;
 		currentState = GameState.PLAYING;
 	}
@@ -30,29 +28,20 @@ public class Game {
 
 			int row = in.nextInt() - 1;
 
-			if (row >= 0 && row < Board.noOfCell
-					&& board.getCells()[row].getMark() == Mark.EMPTY) {
+			if (!board.invalidMove(row)) {
 				board.getCells()[row].setMark(player);
 				board.currentRow = row;
 				validInput = true;
 			} else {
-				invalidMove(row);
+				System.out.println("This move at (" + (row + 1)
+						+ ") is not valid. Try again...");
 			}
 		} while (!validInput);
 	}
 
-	private void invalidMove(int row) {
-		System.out.println("This move at (" + (row + 1)
-				+ ") is not valid. Try again...");
-	}
+	public GameState updateGame(Mark mark) {
+		return result.analyze(board);
 
-	public void updateGame(Mark mark) {
-		if (result.hasWon(mark, board)) {
-			currentState = (mark == Mark.CROSS) ? GameState.CROSS_WON
-					: GameState.NOUGHT_WON;
-		} else if (board.isDraw()) {
-			currentState = GameState.DRAW;
-		}
 	}
 
 	public GameState getCurrentState() {
@@ -71,4 +60,13 @@ public class Game {
 		this.currentPlayer = currentPlayer;
 	}
 
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+
+	
 }
