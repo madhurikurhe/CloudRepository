@@ -5,6 +5,7 @@ public class GameConsole {
 	public static void main(String[] args) {
 		Game game = new Game();
 		GameState state;
+		Mark winner;
 		game.initGame();
 		do {
 			Mark currentPlayer = game.getCurrentPlayer();
@@ -20,9 +21,10 @@ public class GameConsole {
 			state = game.updateGame(currentPlayer);
 			game.setCurrentState(state);
 			System.out.println(state);
+			winner=game.getCurrentPlayer();
 			game.changePlayer();
 		} while (game.getCurrentState() == GameState.PLAYING);
-		System.out.println(state + " Game");
+		System.out.println(winner + " Won  Game");
 	}
 }
 
