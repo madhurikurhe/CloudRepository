@@ -30,7 +30,7 @@ public class ResultAnalyzer {
 		return false;
 	}
 
-	public boolean checkThirdRow(Board board) {
+	private boolean checkThirdRow(Board board) {
 		if(board.getCells()[7].getMark()!=Mark.EMPTY)
 		if( board.getCells()[6].getMark() == board.getCells()[7].getMark()
 				&& board.getCells()[7].getMark() == board.getCells()[8]
@@ -39,7 +39,7 @@ public class ResultAnalyzer {
 		return false;
 	}
 
-	public boolean checkSecondRow(Board board) {
+	private boolean checkSecondRow(Board board) {
 		if(board.getCells()[3].getMark()!=Mark.EMPTY)
 		if( board.getCells()[3].getMark() == board.getCells()[4].getMark()
 				&& board.getCells()[3].getMark() == board.getCells()[5]
@@ -48,7 +48,7 @@ public class ResultAnalyzer {
 		return false;
 	}
 
-	public boolean checkFirstRow(Board board) {
+	private boolean checkFirstRow(Board board) {
 		if(board.getCells()[0].getMark()!=Mark.EMPTY)
 		if( board.getCells()[0].getMark() == board.getCells()[1].getMark()
 				&& board.getCells()[0].getMark() == board.getCells()[2]
@@ -57,7 +57,7 @@ public class ResultAnalyzer {
 		return false;
 	}
 
-	public boolean checkFirstColumn(Board board) {
+	private boolean checkFirstColumn(Board board) {
 		if(board.getCells()[3].getMark()!=Mark.EMPTY)
 		if( board.getCells()[0].getMark() == board.getCells()[3].getMark()
 				&& board.getCells()[3].getMark() == board.getCells()[6]
@@ -66,7 +66,7 @@ public class ResultAnalyzer {
 		return false;
 	}
 
-	public boolean checkSecondColumn(Board board) {
+	private boolean checkSecondColumn(Board board) {
 		if(board.getCells()[1].getMark()!=Mark.EMPTY)
 		if( board.getCells()[1].getMark() == board.getCells()[4].getMark()
 				&& board.getCells()[1].getMark() == board.getCells()[7]
@@ -75,7 +75,7 @@ public class ResultAnalyzer {
 		return false;
 	}
 
-	public boolean checkThirdColumn(Board board) {
+	private boolean checkThirdColumn(Board board) {
 		if(board.getCells()[2].getMark()!=Mark.EMPTY)
 		if( board.getCells()[2].getMark() == board.getCells()[5].getMark()
 				&& board.getCells()[2].getMark() == board.getCells()[8]
@@ -85,7 +85,7 @@ public class ResultAnalyzer {
 	}
 
 		
-	public boolean checkFirstDiagonal(Board board) {
+	private boolean checkFirstDiagonal(Board board) {
 		if(board.getCells()[0].getMark()!=Mark.EMPTY)
 		if( board.getCells()[0].getMark() == board.getCells()[4].getMark()
 				&& board.getCells()[0].getMark() == board.getCells()[8]
@@ -94,7 +94,7 @@ public class ResultAnalyzer {
 			return false;
 	}
 		
-	public boolean checkSecondDiagonal(Board board) {
+	private boolean checkSecondDiagonal(Board board) {
 		if(board.getCells()[2].getMark()!=Mark.EMPTY)
 		if( board.getCells()[2].getMark() == board.getCells()[4].getMark()
 				&& board.getCells()[2].getMark() == board.getCells()[6]

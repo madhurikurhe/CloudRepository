@@ -1,12 +1,11 @@
 package tic.tac.toe;
 
-import java.util.Scanner;
 
 public class Game {
 	private Board board;
 	private GameState currentState;
 	private Mark currentPlayer;
-	private static Scanner in = new Scanner(System.in);
+
 	ResultAnalyzer result = new ResultAnalyzer();
 	public Game() {
 		board = new Board();
@@ -22,24 +21,22 @@ public class Game {
 				: Mark.CROSS;
 	}
 
-	public void playerMove(Mark player) {
+	public void play(int cellNumber) {
 		boolean validInput = false;
 		do {
 
-			int row = in.nextInt() - 1;
-
-			if (!board.invalidMove(row)) {
-				board.getCells()[row].setMark(player);
-				board.currentRow = row;
+			if (!board.invalidMove(cellNumber)) {
+				board.getCells()[cellNumber].setMark(getCurrentPlayer());
+				board.currentRow = cellNumber;
 				validInput = true;
 			} else {
-				System.out.println("This move at (" + (row + 1)
+				System.out.println("This move at (" + (cellNumber + 1)
 						+ ") is not valid. Try again...");
 			}
 		} while (!validInput);
 	}
 
-	public GameState updateGame(Mark mark) {
+	public GameState updateGame() {
 		return result.analyze(board);
 
 	}

@@ -20,7 +20,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(2, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkFirstRow(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 
@@ -33,7 +33,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(5, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkSecondRow(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 
@@ -46,7 +46,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(8, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkThirdRow(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 
@@ -59,7 +59,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(6, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkFirstColumn(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 
@@ -72,7 +72,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(7, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkSecondColumn(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 
@@ -85,7 +85,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(8, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkThirdColumn(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 
@@ -98,7 +98,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(8, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkFirstDiagonal(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 
@@ -111,7 +111,7 @@ public class ResultAnalyzerTest {
 		board.setLocation(6, Mark.CROSS);
 
 		boolean expected = true;
-		boolean actual = analyzer.checkSecondDiagonal(board);
+		boolean actual = analyzer.hasWon(board);
 		assertTrue(expected == actual);
 	}
 

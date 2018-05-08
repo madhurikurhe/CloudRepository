@@ -1,30 +1,40 @@
 package tic.tac.toe;
 
+import java.util.Scanner;
+
 public class GameConsole {
 
 	public static void main(String[] args) {
+		
+		Board board = new Board();
+		ResultAnalyzer result = new ResultAnalyzer();
 		Game game = new Game();
 		GameState state;
 		Mark winner;
+		Scanner in = new Scanner(System.in);
 		game.initGame();
+
 		do {
-			Mark currentPlayer = game.getCurrentPlayer();
 			if (game.getCurrentPlayer() == Mark.CROSS) {
 				System.out
-						.print("Player 'X', enter your move (Cell no between[1-9]): ");
+						.print("Player 'X', enter your move (Cell number between[1-9]): ");
 			} else {
 				System.out
-						.print("Player 'O', enter your move (Cell no between[1-9]): ");
+						.print("Player 'O', enter your move (Cell number between[1-9]): ");
 			}
-			game.playerMove(currentPlayer);
+			int cellNumber = in.nextInt() - 1;
 
-			state = game.updateGame(currentPlayer);
+			game.play(cellNumber);
+			state = game.updateGame();
 			game.setCurrentState(state);
-			System.out.println(state);
-			winner=game.getCurrentPlayer();
+			winner = game.getCurrentPlayer();
 			game.changePlayer();
 		} while (game.getCurrentState() == GameState.PLAYING);
-		System.out.println(winner + " Won  Game");
-	}
-}
 
+		if (state != GameState.DRAW)
+			System.out.println(winner + " Won  Game");
+		else
+			System.out.println("Game Draw");
+	}
+
+}
