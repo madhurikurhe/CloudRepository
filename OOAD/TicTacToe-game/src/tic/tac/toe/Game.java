@@ -1,16 +1,18 @@
 package tic.tac.toe;
 
-
 public class Game {
 	private Board board;
 	private GameState currentState;
 	private Mark currentPlayer;
-
-	ResultAnalyzer result = new ResultAnalyzer();
-	public Game() {
-		board = new Board();
+	private ResultAnalyzer result;
+	
+	public Game(Player[] player, ResultAnalyzer result, Board board) {
+		this.result = result;
+		this.board = board;
 	}
 
+	
+	
 	public void initGame() {
 		currentPlayer = Mark.CROSS;
 		currentState = GameState.PLAYING;
@@ -21,19 +23,16 @@ public class Game {
 				: Mark.CROSS;
 	}
 
-	public void play(int cellNumber) {
-		boolean validInput = false;
-		do {
+	public boolean play(int cellNumber) throws Exception {
 
-			if (!board.invalidMove(cellNumber)) {
-				board.getCells()[cellNumber].setMark(getCurrentPlayer());
-				board.currentRow = cellNumber;
-				validInput = true;
-			} else {
-				System.out.println("This move at (" + (cellNumber + 1)
-						+ ") is not valid. Try again...");
-			}
-		} while (!validInput);
+		if (board.validMove(cellNumber)) {
+			board.getCells()[cellNumber].setMark(getCurrentPlayer());
+			board.currentRow = cellNumber;
+			return true;
+		} else {
+			throw new Exception("Invalid Entry!!!! try again");
+		}
+
 	}
 
 	public GameState updateGame() {
@@ -57,13 +56,6 @@ public class Game {
 		this.currentPlayer = currentPlayer;
 	}
 
-	public Board getBoard() {
-		return board;
-	}
 
-	public void setBoard(Board board) {
-		this.board = board;
-	}
 
-	
 }

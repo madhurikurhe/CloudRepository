@@ -31,8 +31,8 @@ public class BoardTest {
 	public void testToCheckInvalidMove() {
 		Board b = new Board();
 		b.setCurrentRow(10);
-		boolean actual = b.invalidMove(b.getCurrentRow());
-		assertTrue(true == actual);
+		boolean actual = b.validMove(b.getCurrentRow());
+		assertTrue(false == actual);
 	}
 
 }

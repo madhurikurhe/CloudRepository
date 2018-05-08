@@ -41,11 +41,11 @@ public class Board {
 		return true;
 	}
 
-	public boolean invalidMove(int row) {
+	public boolean validMove(int row) {
 		if (row >= 0 && row < Board.noOfCell
 				&& getCells()[row].getMark() == Mark.EMPTY)
-			return false;
-		return true;
+			return true;
+		return false;
 
 	}
 

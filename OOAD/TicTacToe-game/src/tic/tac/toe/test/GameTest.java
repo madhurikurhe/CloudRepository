@@ -4,15 +4,21 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import tic.tac.toe.Board;
 import tic.tac.toe.Game;
 import tic.tac.toe.GameState;
 import tic.tac.toe.Mark;
+import tic.tac.toe.Player;
+import tic.tac.toe.ResultAnalyzer;
 
 public class GameTest {
 	
 	@Test
 	public void shouldChangePlayer(){
-		Game game=new Game();
+		ResultAnalyzer r=new ResultAnalyzer();
+		Board b=new Board();
+		Player[] player = null;
+		Game game=new Game(player,r,b);
 		
 		game.setCurrentPlayer(Mark.CROSS);
 		game.changePlayer();
@@ -24,44 +30,69 @@ public class GameTest {
 		
 	}
 	
+	
 	@Test
 	public void shouldSetCurrentStateToCrossWon() {
-		Game game=new Game();
+		ResultAnalyzer r=new ResultAnalyzer();
+		Board b=new Board();
+		Player[] player = null;
+		Game game=new Game(player,r,b);
+		
 		game.setCurrentState(GameState.WON);
 		assertTrue(GameState.WON == game.getCurrentState());
 	}
 
 	@Test
 	public void shouldSetCurrentStateToNaughtWon() {
-		Game game=new Game();
+		ResultAnalyzer r=new ResultAnalyzer();
+		Board b=new Board();
+		Player[] player = null;
+		Game game=new Game(player,r,b);
+		
 		game.setCurrentState(GameState.WON);
 		assertTrue(GameState.WON == game.getCurrentState());
 	}
 
 	@Test
 	public void shouldSetCurrentStateToDrawGame() {
-		Game game=new Game();
+		ResultAnalyzer r=new ResultAnalyzer();
+		Board b=new Board();
+		Player[] player = null;
+		Game game=new Game(player,r,b);
+		
 		game.setCurrentState(GameState.DRAW);
 		assertTrue(GameState.DRAW == game.getCurrentState());
 	}
 	
 	@Test
 	public void shouldSetCurrentPlayerToCross() {
-		Game game=new Game();
+		ResultAnalyzer r=new ResultAnalyzer();
+		Board b=new Board();
+		Player[] player = null;
+		Game game=new Game(player,r,b);
+		
 		game.setCurrentPlayer(Mark.CROSS);
 		assertTrue(Mark.CROSS == game.getCurrentPlayer());
 	}
 	
 	@Test
 	public void shouldSetCurrentPlayerToNaught() {
-		Game game=new Game();
+		ResultAnalyzer r=new ResultAnalyzer();
+		Board b=new Board();
+		Player[] player = null;
+		Game game=new Game(player,r,b);
+		
 		game.setCurrentPlayer(Mark.NOUGHT);
 		assertTrue(Mark.NOUGHT == game.getCurrentPlayer());
 	}
 	
 	@Test
 	public void shouldSetCurrentPlayerToEmpty() {
-		Game game=new Game();
+		ResultAnalyzer r=new ResultAnalyzer();
+		Board b=new Board();
+		Player[] player = null;
+		Game game=new Game(player,r,b);
+		
 		game.setCurrentPlayer(Mark.EMPTY);
 		assertTrue(Mark.EMPTY == game.getCurrentPlayer());
 	}
