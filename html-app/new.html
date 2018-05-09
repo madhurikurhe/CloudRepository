@@ -24,23 +24,8 @@ function draw() {
     ctx.beginPath();
     ctx.fillStyle ='blue';  
     ctx.moveTo(200, 200);
-    ctx.arc(200, 200, 120, Math.PI*0.5, Math.PI);
+    ctx.arc(200, 200, 120, Math.PI*0.5, Math.PI*2);
     ctx.fill();
-
-    ctx.beginPath();
-    ctx.fillStyle ='pink';  
-    ctx.moveTo(200, 200);
-    ctx.arc(200, 200, 120, Math.PI, Math.PI*1.5);
-    ctx.fill();
-
-ctx.beginPath();
-    ctx.fillStyle ='magenta';  
-    ctx.moveTo(200, 200);
-    ctx.arc(200, 200, 120, Math.PI*1.5, Math.PI*2);
-    ctx.fill();
-
-    
-
 
 }
 window.onload = draw;
