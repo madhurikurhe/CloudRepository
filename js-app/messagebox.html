@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+<p>Enter Message</p>
+<input id="message" type="text"  placeholder="Enter message">
+
+<button onclick="insert()">Add</button>
+<p id="demo"></p>
+
+<script>
+function insert()
+{
+var messages, msgLen;
+var messages=[];
+var messageinput=document.getElementById("message");
+messages[messages.length]=messageinput;
+
+for (var i=0;i<messages.length; i++) {
+    alert(messages[i]);
+}
+document.getElementById("demo").innerHTML = messages;
+}
+</script>
+
+</body>
+</html

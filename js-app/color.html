@@ -1,0 +1,27 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+function changeColor() {
+var eID = document.getElementById("colors");
+var colorVal = eID.options[eID.selectedIndex].value;
+var colorName = eID.options[eID.selectedIndex].text;
+document.body.style.backgroundColor =colorVal;
+}
+</script>
+</head>
+<body>
+<select id="colors" onchange="changeColor()">
+  <option value="#ff9999">Red</option>
+  <option value="#9999FF">Blue</option>
+  <option value="#00ff40" >Green</option>
+  <option value="#fff099">Yellow</option>
+  <option value="#ffd199">Orange</option>
+  <option value="#ffffff" selected="selected">White</option>
+</select>
+<br><br>
+
+</body>
+</html>
+
