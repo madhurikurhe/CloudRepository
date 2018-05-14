@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+<p>Enter Message</p>
+<input id="message" type="text"  placeholder="Enter message">
+
+<button onclick="insert()">Add</button>
+<p id="demo"></p>
+
+<script>
+var messageinput = document.getElementById("message");
+localStorage["message"] = messageinput.value;
+
+var msg = localStorage["message"];
+
+if (msg == null) {
+    message.value = "";
+}
+else {
+    document.getElementById("message").innerHTML= msg;
+}
+</script>
+
+</body>
+</html

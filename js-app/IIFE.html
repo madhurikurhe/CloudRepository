@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+!function() {
+    alert("Hello from IIFE!");
+}();
+
+var result = (function() {
+    return "From IIFE";
+}());
+
+alert(result); 
+
+(function IIFE(msg, times) {
+    for (var i = 1; i <= times; i++) {
+        console.log(msg);
+    }
+}("Hello!", 5));
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
