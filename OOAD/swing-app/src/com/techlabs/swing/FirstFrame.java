@@ -68,7 +68,7 @@ public class FirstFrame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==this)
 			{
-				
+	
 			}
 	}
 

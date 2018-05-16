@@ -5,14 +5,16 @@
 
 <h2>JavaScript Arrays</h2>
 <p>Enter Message</p>
-<input id="message" type="text"  placeholder="Enter message">
+<input id="message" type="text"  placeholder="message">
 
-<button onclick="insert()">Add</button>
+
 <p id="demo"></p>
 
 <script>
-var messageinput = document.getElementById("message");
-localStorage["message"] = messageinput.value;
+var messageinput = document.getElementById("message").value;
+document.getElementById("message").innerHTML=messageinput;
+console.log(messageinput);
+localStorage["message"] = messageinput;
 
 var msg = localStorage["message"];
 
@@ -20,7 +22,7 @@ if (msg == null) {
     message.value = "";
 }
 else {
-    document.getElementById("message").innerHTML= msg;
+    document.getElementById("message").value= msg;
 }
 </script>
 

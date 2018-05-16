@@ -14,7 +14,7 @@ public class Parser {
 
 	public TreeSet<Employee> getRecords() throws IOException {
 		List<String> emp = loader.load();
-		System.out.println(emp);
+		//System.out.println(emp.size());
 		TreeSet<Employee> employees = new TreeSet<Employee>();
 		for (String s : emp) {
 
@@ -30,10 +30,10 @@ public class Parser {
 			employee.setName(attributes[1]);
 
 			Employee emp1 = new Employee(salary, employee.getName(),
-					employee.getDesignation(), employee.getDeptNo());
+			employee.getDesignation(), employee.getDeptNo());
 			employees.add(emp1);
 		}
-
+		System.out.println(employees.size());
 		return employees;
 
 	}

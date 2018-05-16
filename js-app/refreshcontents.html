@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <form method="post" action="index1.html">
+    username:<input type="text" name="uname" id="uname">
+    password:<input type="password" name="pass" id="pass">
+    login:<input type="submit" name="login" onclick="insert()">
+    </form>
+   
+<script>
+    function insert(){
+    localStorage. setItem ('username',document.getElementById('uname').value);
+    localStorage. setItem ('password',document.getElementById('pass').value);
+    var username1=localStorage.getItem('username');
+    var password1=localStorage.getItem('password');
+    
+    document.getElementById("uname").innerHTML=username1;
+    document.getElementById("pass").innerHTML=password1;
+    }
+</script>
+    </body>
+    </html>

@@ -11,6 +11,9 @@ public class DiskLoaderTest {
 	public static void main(String[] args) throws IOException {
 		DiskLoader disk=new DiskLoader();
 		List<String> line=disk.load();
-		System.out.println(line);
+		for(String s:line){
+			System.out.println(s);
+		}
+		System.out.println(line.size());
 	}
 }

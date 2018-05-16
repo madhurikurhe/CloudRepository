@@ -1,7 +1,6 @@
 var company="swabhav";
-function example() {
+(function() {
     var company="Google";
     console.log(company); 
-}
-example();
+})();
 console.log(company);

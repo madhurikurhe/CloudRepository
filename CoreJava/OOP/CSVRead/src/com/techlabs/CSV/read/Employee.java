@@ -1,8 +1,7 @@
 package com.techlabs.CSV.read;
 
-import java.util.Comparator;
 
-public class Employee implements Comparator<Employee> {
+public class Employee implements Comparable<Employee> {
 
 	private int id;
 	private String name;
@@ -100,11 +99,8 @@ public class Employee implements Comparator<Employee> {
 		this.deptNo = deptNo;
 	}
 
-	@Override
-	public int compare(Employee a1, Employee a2) {
-
-		return a1.getSalary() > a2.getSalary() ? 1 : a1.getSalary() < a2
-				.getSalary() ? -1 : 0;
-	}
-
+@Override
+	public int compareTo(Employee o) {
+		return getSalary() - o.getSalary();
+		}
 }
