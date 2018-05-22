@@ -6,6 +6,7 @@ public class Board {
 	private Cell[] cells;
 	int currentRow, currentCol;
 	private Cell cell;
+
 	public Board() {
 		cells = new Cell[noOfCell];
 		for (int row = 0; row < noOfCell; ++row) {
@@ -30,7 +31,6 @@ public class Board {
 		this.currentRow = currentRow;
 	}
 
-
 	public boolean isBoardFull() {
 		for (int row = 0; row < noOfCell; ++row) {
 			if (cells[row].getMark() == Mark.EMPTY) {
@@ -41,22 +41,22 @@ public class Board {
 		return true;
 	}
 
-	public boolean validMove(int row) {
-		if (row >= 0 && row < Board.noOfCell
-				&& getCells()[row].getMark() == Mark.EMPTY)
+	public boolean validMove(int cellNumber) {
+		if (cellNumber >= 0 && cellNumber < Board.noOfCell
+				&& getCells()[cellNumber].getMark() == Mark.EMPTY)
 			return true;
 		return false;
 
 	}
 
 	public void setLocation(int cellNumber, Mark mark) {
-	
+
 		cells[cellNumber].setMark(mark);
 	}
-	
-	public Cell getLocation(int cellNumber){
-		
+
+	public Cell getLocation(int cellNumber) {
+
 		return cell;
-		
+
 	}
 }

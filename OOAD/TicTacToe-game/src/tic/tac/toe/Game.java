@@ -5,14 +5,12 @@ public class Game {
 	private GameState currentState;
 	private Mark currentPlayer;
 	private ResultAnalyzer result;
-	
+
 	public Game(Player[] player, ResultAnalyzer result, Board board) {
 		this.result = result;
 		this.board = board;
 	}
 
-	
-	
 	public void initGame() {
 		currentPlayer = Mark.CROSS;
 		currentState = GameState.PLAYING;
@@ -55,7 +53,5 @@ public class Game {
 	public void setCurrentPlayer(Mark currentPlayer) {
 		this.currentPlayer = currentPlayer;
 	}
-
-
 
 }
