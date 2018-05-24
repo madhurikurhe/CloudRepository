@@ -26,6 +26,10 @@ public class Game {
 		if (board.validMove(cellNumber)) {
 			board.getCells()[cellNumber].setMark(getCurrentPlayer());
 			board.currentRow = cellNumber;
+			GameState state = updateGame();
+			setCurrentState(state);
+			getCurrentPlayer();
+			changePlayer();
 			return true;
 		} else {
 			throw new Exception("Invalid Entry!!!! try again");

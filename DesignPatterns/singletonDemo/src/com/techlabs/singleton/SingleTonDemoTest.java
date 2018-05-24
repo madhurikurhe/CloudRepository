@@ -3,9 +3,9 @@ package com.techlabs.singleton;
 public class SingleTonDemoTest {
 public static void main(String[] args) {
 	
-	SingleTonDemo x= SingleTonDemo.singletonInstance();
-	SingleTonDemo y= SingleTonDemo.singletonInstance();
-	SingleTonDemo z= SingleTonDemo.singletonInstance();
+	DataService x= DataService.singletonInstance();
+	DataService y= DataService.singletonInstance();
+	DataService z= DataService.singletonInstance();
 	
 	System.out.println(x);
 	System.out.println(y);
