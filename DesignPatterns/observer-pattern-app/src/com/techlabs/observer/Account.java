@@ -44,22 +44,19 @@ public class Account {
 	public void deposit(int amount){
 		this.balance=amount+this.balance;
 		
-		IAccountListner acc1;
-		acc1=new SMSListner();
-		acc1.balanceChanged(this);
-		
-		acc1=new EmailListner();
-		acc1.balanceChanged(this);
+		update();
 	}
 
 	public void withdraw(int amount){
 		this.balance=this.balance-amount;
-		IAccountListner acc1;
-		acc1=new SMSListner();
-		acc1.balanceChanged(this);
 		
-		acc1=new EmailListner();
-		acc1.balanceChanged(this);
+		update();
+	}
+
+	public void update() {
+		for(IAccountListner observer:listner){
+			observer.balanceChanged(this);
+		}
 	}
 
 
