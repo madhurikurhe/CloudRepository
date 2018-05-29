@@ -8,32 +8,31 @@ public class GameConsole {
 
 		Board board = new Board();
 		ResultAnalyzer result = new ResultAnalyzer();
-		Player[] player=new Player[2];
-		
+		Player[] player = new Player[2];
 
 		Game game = new Game(player, result, board);
 		GameState state;
 
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		game.initGame();
-		
+
 		System.out.println("Enter First Player Name:");
-		String player1=in.nextLine();
-		
+		String player1 = in.nextLine();
+
 		System.out.println("Enter Second Player Name:");
-		String player2=in.nextLine();
-		
-		 player[0] = new Player(player1,Mark.CROSS);
-		 player[1] = new Player(player2,Mark.NOUGHT);
-		
+		String player2 = in.nextLine();
+
+		player[0] = new Player(player1, Mark.CROSS);
+		player[1] = new Player(player2, Mark.NOUGHT);
 
 		do {
 			if (game.getCurrentPlayer() == Mark.CROSS) {
-				System.out
-						.print(player[0].getPlayerName()+" Enter your move (Cell number between[1-9]): ");
+				System.out.print(player[0].getPlayerName()
+						+ " Enter your move (Cell number between[1-9]): ");
 			} else {
-				System.out
-						.print(player[1].getPlayerName()+" Enter your move (Cell number between[1-9]): ");
+				System.out.print(player[1].getPlayerName()
+						+ " Enter your move (Cell number between[1-9]): ");
 			}
 			int cellNumber = in.nextInt() - 1;
 
@@ -54,9 +53,11 @@ public class GameConsole {
 
 		if (game.getCurrentState() != GameState.DRAW) {
 			if (game.getCurrentPlayer() == Mark.CROSS)
-				System.out.println("Congradulations!!!" +player[1].getPlayerName() +" Won Game");
+				System.out.println("Congradulations!!!"
+						+ player[1].getPlayerName() + " Won Game");
 			else
-				System.out.println("Congradulations!!!" +player[0].getPlayerName() +" Won Game");
+				System.out.println("Congradulations!!!"
+						+ player[0].getPlayerName() + " Won Game");
 		} else
 			System.out.println("Sorry...Game Draw");
 	}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.intro {
+    background-color: yellow;
+}
+
+#firstname {
+    background-color:palevioletred;
+}
+* {
+    background-color: mediumaquamarine;
+}
+P{
+    background-color: magenta;
+}
+
+h2,p{
+    background-color: lightslategrey;
+}
+
+div>h2{
+    background-color: lightcoral;
+}
+
+div+p{
+    background-color: lightcyan;
+}
+
+P ~ ul{
+    background-color: blue;
+}
+a[target]{
+    background-color: blueviolet;
+}
+
+a[target=_blank]{
+    background-color: black;
+}
+[title~=flower] {
+    border: 5px solid green;
+}
+a:active {
+    background-color: yellow;
+}
+
+p::after { 
+    content: " Content after each p tag";
+}
+
+input:checked {
+    height: 50px;
+    width: 50px;
+}
+input[type=text]:disabled {
+    background: gray;
+}
+
+a:hover {
+    background-color: yellow;
+}
+
+input:in-range {
+    border: 2px solid green;
+}
+</style>
+</head>
+<body>
+
+<h1>Welcome to My Homepage</h1>
+<h2>Welcome to My Homepage</h2>
+
+<div class="intro">
+  <p>My name is Donald.</p>
+  <p id="firstname">I live in Duckburg.</p>  
+</div>
+<input type="radio" value="male" checked="checked">Male<br>
+<input type="radio" value="Female" checked="checked">Female<br>
+
+<input type="radio" value="Female">
+Country: <input type="text" disabled="disabled" value="Disneyland">
+<input type="number" min="5" max="10" value="7">
+<div>
+    <h2>Hello</h2>
+</div>
+<p>My best friend is Mickey.</p>
+<ul>
+    <li>madhu</li>
+    <li>trisha</li>
+    <li>Prasad</li>
+</ul>
+<a href="http://www.disney.com" target="_blank">disney.com</a>
+<a href="http://www.wikipedia.org" target="_top">wikipedia.org</a>
+
+<img src="klematis.jpg" title="klematis flower" width="150" height="113">
+</body>
+</html>

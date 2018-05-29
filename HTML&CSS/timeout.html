@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="setTimeout(myFunction, 3000);">Click to see demo of setTimeout</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+    alert('Hello');
+}
+
+var time = setInterval(Timer, 1000);
+
+function Timer() {
+    var date = new Date();
+    document.getElementById("demo").innerHTML = date.toLocaleTimeString();
+}
+</script>
+
+</body>
+</html>

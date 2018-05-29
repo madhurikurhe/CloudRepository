@@ -1,0 +1,31 @@
+li{
+    float: left;
+}
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color:navy;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 16px;
+text-decoration: none;
+font: 300;
+font-family: fantasy;
+color:wheat;
+}
+
+li a:hover {
+background-color:palevioletred;
+}
+
+.offers{
+    float: left;
+    background-color:chocolate
+}
