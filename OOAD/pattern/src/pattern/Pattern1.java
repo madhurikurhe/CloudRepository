@@ -1,5 +1,7 @@
 package pattern;
 
+import java.util.Scanner;
+
 public class Pattern1 {
 	public static void main(String[] args) {
 		int k = 0;
@@ -11,5 +13,9 @@ public class Pattern1 {
 				k = 0;
 			}
 		}
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter First Number:");
+		String name = s.nextLine();
 	}
 }

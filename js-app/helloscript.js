@@ -1,6 +1,5 @@
 
 
-
 var messages  = [];
 
 function insert ( ) {
