@@ -1,0 +1,53 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    $(document).ready(function(){
+    $("button").click(function(){
+        // Get value from input element on the page
+        var numValue = $("#num").val();
+        
+        // Send the input data to the server using get
+        $.get("create-table.php", {number: numValue} , function(data){
+            // Display the returned data in browser
+            $("#result").html(data);
+        });
+    });
+});
+    
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .bb{
+        background-color:aquamarine;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        border: sienna;
+    }
+</style>
+
+</head>
+<body class="bb">
+    <div>
+    Roll No:<input type="text" name="roll"><br><br>
+    Name:<input type="text" name="name"><br><br>
+    Gender:<input type="radio" value="male" name="Male">Male
+    <input type="radio" value="female" name="Female">Female<br><br>
+    Birthday:
+    <input type="date" name="bday">
+  
+    <input type="button" name="button" value="ADD"><br>
+</div>
+   
+<label>Enter a Number: <input type="text" id="num"></label>
+    <button type="button">Show Multiplication Table</button>
+    <div id="result"></div>
+</body>
+</html>

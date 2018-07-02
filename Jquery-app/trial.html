@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.column.side {
+    width: 25%;
+}
+
+.column.middle {
+    width: 50%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="row">
+  
+    <div class="column side">
+    <h2>Side</h2>
+    </div>
+  
+    <div class="column middle">
+    <h2>Main Content</h2>
+    </div>
+ 
+    <div class="column side">
+    <h2>Side</h2>
+    </div>
+</div>
+  
+</body>
+</html>

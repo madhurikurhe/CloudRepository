@@ -1,5 +1,8 @@
 package com.techlabs.CSV.read;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Employee implements Comparable<Employee> {
 
@@ -11,7 +14,8 @@ public class Employee implements Comparable<Employee> {
 	private int salary;
 	private int commision;
 	private int deptNo;
-
+	private List<Employee> reportees=new ArrayList<Employee>();
+	
 	public Employee(int id, String name, String designation, int managerId,
 			int dOJ, int salary, int commision, int deptNo) {
 		this.id = id;
@@ -28,11 +32,13 @@ public class Employee implements Comparable<Employee> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int salary2, String name2, String designation, int deptNo) {
+	public Employee(int salary2, String name2, String designation, int deptNo,int managerID, int id) {
 		this.salary = salary2;
 		this.name = name2;
 		this.designation = designation;
 		this.deptNo = deptNo;
+		this.managerId=managerID;
+		this.id=id;
 	}
 
 	public int getId() {
@@ -63,8 +69,8 @@ public class Employee implements Comparable<Employee> {
 		return managerId;
 	}
 
-	public void setManagerId(int managerId) {
-		this.managerId = managerId;
+	public void setManagerId(int mgr) {
+		this.managerId = mgr;
 	}
 
 	public int getDOJ() {
@@ -103,4 +109,12 @@ public class Employee implements Comparable<Employee> {
 	public int compareTo(Employee o) {
 		return getSalary() - o.getSalary();
 		}
+
+public List<Employee> getReportees() {
+	return reportees;
+}
+
+public void setReportees(List<Employee> reportees) {
+	this.reportees = reportees;
+}
 }

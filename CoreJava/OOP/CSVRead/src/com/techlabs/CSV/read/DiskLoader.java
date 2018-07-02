@@ -14,7 +14,7 @@ public class DiskLoader implements ILoader {
 		List<String> lines = new ArrayList<>();
 		String line = "";
 
-		br = new BufferedReader(new FileReader("employee.txt"));
+		br = new BufferedReader(new FileReader("emp.txt"));
 
 		while ((line = br.readLine()) != null) {
 			lines.add(line);

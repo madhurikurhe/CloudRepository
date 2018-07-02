@@ -14,8 +14,13 @@ public class Pattern1 {
 			}
 		}
 
+		int b = 4;
+		double s1 = Math.sqrt(b);
+		System.out.println(s1);
+
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter First Number:");
 		String name = s.nextLine();
 	}
+
 }

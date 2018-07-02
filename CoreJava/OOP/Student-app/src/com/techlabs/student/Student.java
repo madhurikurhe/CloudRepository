@@ -17,7 +17,7 @@ public class Student implements Serializable {
 	public Student(String fname, String lname, String email) {
 		firstName = fname;
 		lastName = lname;
-		email = email;
+		this.email = email;
 
 	}
 

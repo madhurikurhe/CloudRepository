@@ -1,6 +1,7 @@
 package com.techlabs.CSV.read;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -14,15 +15,19 @@ public class Parser {
 
 	public TreeSet<Employee> getRecords() throws IOException {
 		List<String> emp = loader.load();
-		//System.out.println(emp.size());
+		String managerID = null;
+		int mgr = 0;
 		TreeSet<Employee> employees = new TreeSet<Employee>();
 		for (String s : emp) {
 
 			String[] attributes = s.split(",");
+			
 			int id = Integer.parseInt(attributes[0]);
 			int salary = Integer.parseInt(attributes[5]);
 			int deptNo = Integer.parseInt(attributes[7]);
-
+			mgr = Integer.parseInt(attributes[3]);
+			employee.setId(id);
+			employee.setManagerId(mgr);
 			employee.setDesignation(attributes[2]);
 			employee.setDeptNo(deptNo);
 			employee.setSalary(salary);
@@ -30,11 +35,14 @@ public class Parser {
 			employee.setName(attributes[1]);
 
 			Employee emp1 = new Employee(salary, employee.getName(),
-			employee.getDesignation(), employee.getDeptNo());
+					employee.getDesignation(), employee.getDeptNo(),
+					employee.getManagerId(),employee.getId());
 			employees.add(emp1);
 		}
-		System.out.println(employees.size());
 		return employees;
 
 	}
+
+
 }
+

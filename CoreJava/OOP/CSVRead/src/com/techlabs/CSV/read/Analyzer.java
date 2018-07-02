@@ -6,9 +6,9 @@ import java.util.TreeSet;
 public class Analyzer  {
 	public static void main(String[] args) throws IOException {
 
-		URLLoader url = new URLLoader();
+		//URLLoader url = new URLLoader();
 		DiskLoader disk=new DiskLoader();
-		Parser parser = new Parser(url);
+		Parser parser = new Parser(disk);
 		
 		TreeSet<Employee> emp = parser.getRecords();
 	//	System.out.println(emp.size());
