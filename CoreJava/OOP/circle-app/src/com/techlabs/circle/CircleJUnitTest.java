@@ -10,7 +10,7 @@ public class CircleJUnitTest {
 	public void testGetRadius() {
 		Circle circle=new Circle(3);
 		double result=circle.getRadius();
-		assertEquals(3, result);
+		assertTrue(3== result);
 	}
 
 

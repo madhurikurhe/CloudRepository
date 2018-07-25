@@ -21,6 +21,7 @@ public class DiskLoader implements ILoader {
 		}
 
 		br.close();
+		//System.out.println(lines.size());
 		return lines;
 	}
 

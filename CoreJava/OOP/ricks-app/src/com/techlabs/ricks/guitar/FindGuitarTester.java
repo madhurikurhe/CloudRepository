@@ -14,6 +14,7 @@ public class FindGuitarTester {
 		List<Guitar> matchingGuitars = inventory.search(whatMadhuLikes);
 		if (!matchingGuitars.isEmpty()) {
 			System.out.println("\nMadhu,U might like these guitars");
+			
 			for (Iterator<Guitar> i = matchingGuitars.iterator(); i.hasNext();) {
 				Guitar guitar = (Guitar) i.next();
 				GuitarSpec spec = guitar.getSpec();

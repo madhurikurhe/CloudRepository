@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<h1>One way Binding</h1>
+<p>Employee details:{{ employee.rollNo+ "   "+employee.name +"   " +employee.salary }}</p>
+
+<hr>
+<h1>Two way Binding</h1>
+
+  Roll No: <input type="text" ng-model="employee.rollNo">
+  Name: <input type="text" ng-model="employee.name">
+  Salary: <input type="text" ng-model="employee.salary">
+
+  <p>Employee details:{{ employee.rollNo+ "   "+employee.name +"   " +employee.salary }}</p>
+<hr>
+  <h1>One Time Binding</h1>
+
+  <p>Employee details:{{ ::employee.rollNo }}
+    {{::employee.name}}
+    {{::employee.salary}}
+    
+  </p>
+
+</div>
+<script>
+  var app = angular.module('myApp', []);
+  
+  app.controller('myCtrl', function($scope) {
+      $scope.employee = {
+        rollNo:101,
+        name:'Madhuri',
+        salary:30000
+      }
+  });
+  </script>
+</body>
+</html>

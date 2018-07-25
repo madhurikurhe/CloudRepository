@@ -1,13 +1,12 @@
 package com.techlabs.college;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class CollegeTest {
 	public static void main(String[] args) {
-		List<Professor> professors = new ArrayList<Professor>();
-		List<Student> students = new ArrayList<Student>();
-
+		List<Professor> professors;
+		List<Student> students;
 		College college = new College();
 		college.addStudent(new Student(101, "Mumbai", "24", Branch.Civil));
 		college.addStudent(new Student(102, "Pune", "26",

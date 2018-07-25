@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+        <div ng-app="myApp" ng-controller="MyCtrl">
+                <div add-input>
+                    <button>add input</button>
+                </div>
+            </div>
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('MyCtrl', ['$scope', function ($scope) {
+    $scope.ball = [];
+    $scope.inputCounter = 0;
+    $scope.$watch('ball', function (value) {
+    console.log(value);
+    }, true);
+}]);
+
+app.directive('addInput', ['$compile', function ($compile) { 
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+    
+            element.find('button').bind('click', function () {
+                var input = angular.element('<div><input type="button" ng-model="ball[' + scope.inputCounter + ']"></div>');
+                var compile = $compile(input)(scope);
+                element.append(input);
+                scope.inputCounter++;
+            });
+        }
+    }
+}]);
+</script> 
+
+</body>
+</html>

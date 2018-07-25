@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    
+    <title></title>
+    
+    <script>
+    function add(){
+        var x=document.getElementById("fn").value;
+        console.log(x);
+        var y=document.getElementById("sn").value;
+        console.log(y);
+        var z=+x + +y;
+        console.log(z);
+        document.getElementById("demo").innerHTML=z;
+
+    }
+    </script>
+</head>
+<body>
+<input type="text" id="fn">
+<input type="text" id="sn">
+<input type="button" id="button" value="add" onclick="add()">
+  <div id="demo"></div>  
+</body>
+</html>

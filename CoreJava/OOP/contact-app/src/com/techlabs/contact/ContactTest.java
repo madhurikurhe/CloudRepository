@@ -22,7 +22,6 @@ public class ContactTest {
 		Contact[] contact = new Contact[3];
 		Scanner s = new Scanner(System.in);
 		int ch;
-		List contactList = new ArrayList();
 		do {
 			System.out.println("\n\tMENU");
 			System.out.println("\t1.Display");
@@ -34,7 +33,7 @@ public class ContactTest {
 			ch = s.nextInt();
 			String firstName;
 			String lastName;
-			String email;
+			int email;
 
 			switch (ch) {
 			case display:
@@ -56,7 +55,7 @@ public class ContactTest {
 				lastName = s1.nextLine();
 				contact[index].setLastName(lastName);
 				System.out.println("\nEnter Email:");
-				email = s1.nextLine();
+				email = s1.nextInt();
 				contact[index].setEmail(email);
 				index++;
 				break;

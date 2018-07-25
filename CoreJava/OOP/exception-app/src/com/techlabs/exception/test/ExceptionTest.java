@@ -11,7 +11,7 @@ public class ExceptionTest {
 		UnChecked unchecked = new UnChecked();
 
 		unchecked.unCheckedException();
-		// checked.checkedException();
+	 checked.checkedException();
 
 	}
 }

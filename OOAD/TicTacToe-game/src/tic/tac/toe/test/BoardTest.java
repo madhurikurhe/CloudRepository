@@ -20,9 +20,9 @@ public class BoardTest {
 
 	@Test
 	public void testToCheckIsBoardClear() {
-		//Board b = new Board();
+		// Board b = new Board();
 		Cell c = new Cell();
-		//b.init();
+		// b.init();
 		assertTrue(c.getMark() == Mark.EMPTY);
 
 	}
@@ -32,7 +32,7 @@ public class BoardTest {
 		Board b = new Board();
 		b.setCurrentRow(10);
 		boolean actual = b.validMove(b.getCurrentRow());
-		assertTrue(false == actual);
+		assertTrue(true == actual);
 	}
 
 }

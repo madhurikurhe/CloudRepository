@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import org.junit.Test;
 public class JobCandidateSorterTest {       
     
-  public void testGetSortedJobCandidateByAge() throws Exception {         
+  public static void main(String[] args) {
+	     
     JobCandidate jobCandidate1 = new JobCandidate("Madhu", "Female", 26);         
     JobCandidate jobCandidate2 = new JobCandidate("Trisha", "Female", 12);         
     JobCandidate jobCandidate3 = new JobCandidate("Aditi", "Female", 27);         

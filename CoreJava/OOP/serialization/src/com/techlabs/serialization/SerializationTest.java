@@ -1,8 +1,8 @@
 package com.techlabs.serialization;
 
-import java.util.Scanner;
 
-import com.techlabs.contact.Contact;
+
+import java.util.Scanner;
 
 public class SerializationTest {
 
@@ -24,12 +24,12 @@ int index=0;
 
 //		Employee empNew = null;
 
-	//	empNew = (Employee) Serialization.deserialize(fileName);
+	Employee empNew = (Employee) Serialization.deserialize(fileName);
 
-		System.out.println("Firstname Before Serialization::" + emp);
+		System.out.println("Firstname Before Serialization::" + emp[0].getFirstName());
 		//System.out.println("Last name Before Serialization::" + emp.getLastName());
 		//System.out.println("email Before Serialization::" + emp.getEmail());
 		
-		//System.out.println("Firstname After Serialization::" + empNew);
+		System.out.println("Firstname After Serialization::" + empNew);
 	}
 }

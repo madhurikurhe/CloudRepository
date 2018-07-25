@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .button {
+      background-color: burlywood;
+      border: none;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    body {
+      background: #F8E1C2;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px;
+      text-align: center;
+    }
+
+    ol {
+      color: chocolate;
+      text-align: left;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    img {
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      padding: 5px;
+      width: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <table style="border: black">
+    <td>
+      <tr>
+        <div ng-app="game" ng-controller="MainCtrl">
+          <h1> Enter number of Ball:
+          <input type="text" ng-model="x" id="num">
+        </h1>
+          <button class="button" ng-click="init()">Add Balls</button>
+          <br>
+          <span data-ng-repeat="button in buttonArray">
+
+            <button ng-model="myvalue" ng-click="changeColor(button.id,$event)" class="button">
+              <img src="h4.gif" alt="Save icon" />
+            </button>
+          </span>
+
+          <h1 style="color:black">Rules For BlueBall Game</h1>
+          <ol>
+            <em>
+              <li>You have 5 attempts to guess blue ball.</li>
+              <li>If your guess is less than blue ball position then clicked ball color will be
+                <span style="color: forestgreen">Green</span>
+              </li>
+              <li>If your guess is more than blue ball position then clicked ball color will be
+                <span style="color:red">Red</span>
+              </li>
+            </em>
+
+          </ol>
+        </div>
+      </tr>
+    </td>
+  </table>
+  <script>
+
+    var app = angular.module('game', []);
+    app.controller('MainCtrl', function ($scope) {
+      $scope.buttonArray = [];
+      var buttonID = 0;
+
+      $scope.init = function () {
+        var x1 = $scope.x;
+        $scope.randomNumber = Math.floor((Math.random() * x1) + 1);
+        console.log($scope.randomNumber);
+
+        while (x1 > 0) {
+          $scope.addNewbutton();
+          x1--;
+        }
+        // console.log($scope.buttonArray.length);
+        $scope.x = "";
+      }
+
+      $scope.addNewbutton = function () {
+        $scope.buttonArray.push({
+          'id': buttonID
+        });
+        buttonID = buttonID + 1;
+
+      };
+
+      var attempt = 4;
+
+      $scope.changeColor = function (id, obj) {
+        var s = obj.srcElement;
+        console.log(id);
+        console.log($scope.randomNumber);
+
+        if (attempt != 0) {
+          if (id == $scope.randomNumber) {
+            s.style.backgroundColor = "blue";
+            confirm("Congradulations u won game");
+            attempt = 0;
+          }
+          else if (id > $scope.randomNumber) {
+            s.style.backgroundColor = "pink";
+            attempt = attempt - 1;
+            confirm("Attempts left:" + attempt);
+
+          }
+          else if (id < $scope.randomNumber) {
+            s.style.backgroundColor = "lightgreen";
+            attempt = attempt - 1;
+            confirm("Attempts left:" + attempt);
+
+          }
+          else if (attempt == 0)
+            confirm("Try again");
+
+        }
+
+      };
+    });
+  </script>
+</body>
+
+</html>

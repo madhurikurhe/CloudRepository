@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class Contact {
 	private String firstName;
 	private String lastName;
-	private String email;
+	private int email;
 	static int count = 0;
 
-	public Contact(String fname, String lname, String email) {
+	public Contact(String fname, String lname, int email) {
 		this.firstName = fname;
 		this.lastName = lname;
 		this.email = email;
@@ -22,11 +22,11 @@ public class Contact {
 
 
 
-	public String setEmail(String email) {
+	public int setEmail(int email) {
 		return this.email = email;
 	}
 
-	public String getEmail() {
+	public int getEmail() {
 		return email;
 	}
 

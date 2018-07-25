@@ -8,7 +8,7 @@ public class Reflection {
 	private int getset;
 	private int construct;
 
-	private Reflection() {
+	Reflection() {
 		
 	}
 

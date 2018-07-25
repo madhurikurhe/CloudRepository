@@ -7,10 +7,10 @@ import man.Man;
 	
 public class ManTest {
 	public static void main(String args[]) {
-		// case1();
-		// case2();
-		// case3();
-		case4();
+		 //case1();
+		//case2();
+		 case3();
+		//case4();
 
 	}
 
@@ -27,11 +27,14 @@ public class ManTest {
 	}
 
 	private static void case3() {
-		Man x;
-		x = new Boy();
+		
+	Man	x = new Boy();
 		x.read();
 		x.walk();
 		x.play();
+		((Boy) x).eat();
+		
+		
 	}
 
 	private static void case2() {
