@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="button" Value="Load" ng-click="load()">
+        <p>
+            <h1>Employee details:</h1>{{"RollNo:" +employee.rollNo+ " Company: "+employee.company +" Salary: " +employee.salary
+            }}
+            <div>
+                <img ng-src="{{employee.photo}}" />
+            </div>
+        </p>
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $timeout) {
+
+            $scope.load = function () {
+                console.log("Clicked");
+                $scope.employee = {
+                    rollNo: 101,
+                    company: 'SwabhavTechlabs',
+                    salary: 30000,
+                    photo: 'http://www.java2s.com/style/download.png'
+
+                }
+
+
+            }
+            $timeout(function () {
+                return function () { $scope.employee.company = "AurionPro"; return company; }
+
+            }, 2000);
+        });
+
+    </script>
+</body>
+
+</html>

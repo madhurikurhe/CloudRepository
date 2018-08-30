@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<style>
+    .bb {
+        background-color: aquamarine;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        border: sienna;
+    }
+
+    table,
+    td,th {
+        border-collapse:collapse;
+        border: 1px solid black;
+        text-align:center;
+        padding: 8px;
+        table-layout: fixed;
+        
+    }
+
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 10px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+<body ng-app="helloApp" ng-controller="CompanyCtrl" class="bb">
+
+
+    <form ng-submit="addRow()">
+        <div>
+            <label>Name</label>
+            <div>
+                <input type="text"  name="name" ng-model="name" />
+            </div>
+        </div>
+        <div>
+            <label>Employees</label>
+            <div>
+                <input type="text" name="employees" ng-model="employees" />
+            </div>
+        </div>
+        <div>
+            <label>Headoffice</label>
+            <div>
+                <input type="text"  name="headoffice" ng-model="headoffice" />
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <tr>
+            <th>Name
+            </th>
+            <th>Employees
+            </th>
+            <th>Head Office
+            </th>
+        </tr>
+        <tr ng-repeat="company in companies">
+            <td>{{company.name}}
+            </td>
+            <td>{{company.employees}}
+            </td>
+            <td>{{company.headoffice}}
+            </td>
+        </tr>
+    </table>
+
+    <script>
+
+        var helloApp = angular.module("helloApp", []);
+        helloApp.controller("CompanyCtrl", function ($scope) {
+            $scope.companies = [
+                {
+                    'name': 'Infosys Technologies',
+                    'employees': 125000,
+                    'headoffice': 'Bangalore'
+                },
+                {
+                    'name': 'Cognizant Technologies',
+                    'employees': 100000,
+                    'headoffice': 'Bangalore'
+                },
+                
+            ];
+            $scope.addRow = function () {
+                if (!$scope.name || !$scope.employees || !$scope.headoffice)
+                    alert("Some fields are empty");
+                else {
+                    $scope.companies.push({ 'name': $scope.name, 'employees': $scope.employees, 'headoffice': $scope.headoffice });
+                    $scope.name = '';
+                    $scope.employees = '';
+                    $scope.headoffice = '';
+                }
+            };
+        });
+
+    </script>
+</body>
+
+</html>

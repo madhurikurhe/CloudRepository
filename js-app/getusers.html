@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Page Title</title>
+
+</head>
+<script>
+    var users = [
+        {
+            userID: 101,
+            repository: [{
+                commit: "first"
+            },
+            {
+                commit: "second"
+            }
+            ]
+        },
+        {
+            userID: 102,
+            repository: [{
+                commit: "third"
+            },
+            {
+                commit: "fourth"
+            }
+            ]
+        }
+
+    ];
+
+    
+    
+    get.prototype.getUsers = function (user) {
+        return new Promise(function (resolve, reject) {
+            if (users.userID == 101) {
+                resolve({ userID: user.userID, userName: "Madhuri" });
+            } else {
+                if (user.userID == "") {
+                    reject({ status: 1, message: "UserID is invalid" });
+                }
+            }
+        });
+    }
+
+
+var get = new get();
+
+var loginPromise = get.getUsers({userID:101});
+
+loginPromise.then(function(response){
+    console.log("User ID: " + response.userID);
+}, function(error) {
+    console.log(error.message);
+});
+
+</script>
+
+<body>
+
+</body>
+
+</html>

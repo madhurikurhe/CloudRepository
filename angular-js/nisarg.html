@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .button {
+            background-color: lightcoral;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        body {
+            background: #F8E1C2;
+            -webkit-font-smoothing: antialiased;
+            padding: 40px;
+            text-align: center;
+        }
+
+        ol {
+            color: chocolate;
+            text-align: left;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        img {
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            padding: 5px;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table style="border: black">
+        <td>
+            <tr>
+                <div ng-app="game" ng-controller="MainCtrl">
+
+                    <br>
+                    <span data-ng-repeat="button in buttonArray">
+
+                        <button ng-model="myvalue" ng-click="changeColor(button.id,$event)" class="button" value="id">
+                            
+                        </button>
+                    </span>
+                </div>
+            </tr>
+        </td>
+    </table>
+    <input type="text" ng-model="needService">I need Service Please
+    <script>
+
+        var app = angular.module('game', []);
+        app.controller('MainCtrl', function ($scope) {
+            $scope.buttonArray = [];
+            var buttonID = 0;
+
+
+            var x = 25;
+            while (x > 0) {
+                $scope.buttonArray.push({
+                    'id': buttonID
+                });
+                buttonID += 1;
+                x--;
+            }
+
+
+            $scope.changeColor = function (id, obj) {
+                var s = obj.srcElement;
+                console.log(id);
+
+
+            };
+        });
+    </script>
+</body>
+
+</html>

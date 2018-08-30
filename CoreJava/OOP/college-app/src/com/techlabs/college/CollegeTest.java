@@ -29,6 +29,7 @@ public class CollegeTest {
 
 		System.out.println("\nTotal Professors:" + professors.size());
 		college.calculateSalary(professors);
+		//college.calculateSalary(students);
 		for (Professor p : professors) {
 			System.out.print("\nID:" + p.getId());
 			System.out.print("\tAddress:" + p.getAddress());

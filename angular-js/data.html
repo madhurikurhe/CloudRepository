@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <title>Student app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="data.js"></script>
+    <style>
+        .bb {
+            background-color: aquamarine;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            border: sienna;
+        }
+
+        table,
+        td,
+        th {
+            border-collapse: collapse;
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body class="bb" ng-app="myModule" ng-controller="myController">
+
+    <div>
+        <h1>Student Details</h1>
+        <div>
+            <div>
+                <form name="studentForm" novalidate ng-submit="submitData(studentForm.$valid)">
+
+                    <table>
+                        <tr>
+                            <td>Roll No</td>
+                            <td>
+                                <input type="number" ng-model="student.rollNo" name="rollNumber" id="rollNumber" required placeholder="Roll number">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>First Name</td>
+                            <td>
+                                <input ng-model="student.fname" required type="text" name="fname" id="fname" placeholder="First Name">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Last Name</td>
+                            <td>
+                                <input ng-model="student.lname" required type="text" name="lname" id="lname" placeholder="Last Name">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                                <td>CGPA</td>
+                                <td>
+                                    <input ng-model="student.cgpa" required type="number" name="cgpa" id="cgpa" placeholder="CGPA">
+                                </td>
+                            </tr>
+    
+                        <tr>
+                            <td>Male</td>
+                            <td>
+                                <input ng-value="'male'" type="radio" id="male" ng-model="student.gender" name="gender">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Female</td>
+                            <td>
+                                <input ng-value="'female'" type="radio" ng-model="student.gender" id="female" name="gender">
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <button type="submit" ng-disabled="studentForm.$invalid">Add student</button>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            </form>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <div ng-if="loading === true">
+
+                    </div>
+                    <table>
+                        <thead>
+                            <tr style="text-align: center">
+
+                                <th>RollNo</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>CGPA</th>
+                                <th>Gender</th>
+                            
+                            </tr>
+                        </thead>
+                        
+                        <tbody ng-repeat="student in users">
+
+                            <tr style="text-align: center">
+
+                                <td>{{student.RollNo}}</td>
+                                <td>{{student.firstName}}</td>
+                                <td>{{student.lastName}}</td>
+                                <td>{{student.CGPA}}</td>
+                                <td>{{student.gender}}</td>
+                                
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    
+        </body>
+
+</body>
+
+</html>

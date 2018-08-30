@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Page Title</title>
+
+</head>
+<script>
+    var dataService=function(){
+        var obj={};
+        obj.getSync=function(){
+            return (Math.random ()* 10);
+        }
+        
+        obj.getAsync=function(callback){
+            setTimeout(function(){
+                var d=Math.random() *100;
+                callback(d);
+            },0);
+        }
+        return obj;
+    }();
+    
+    var test = dataService.getSync();
+    console.log(test);
+    dataService.getAsync(function (r) {
+        console.log(r);
+    });
+    console.log("End of Program");
+</script>
+
+<body>
+
+</body>
+
+</html>

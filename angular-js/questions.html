@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>QuizApp</title>
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="productController">
+    <div class="container">
+        <h1 class="title">QuizApp</h1>
+        <quiz/>
+    </div>
+
+    <table border="2">
+        <tr style="background-color:green">
+            <td>Question</td>
+            <td>Options</td>
+            <td>Answer</td>
+        </tr>
+        <tr ng-repeat="que in quearray">
+            <td>{{que.questionText}}</td>
+            <td>{{que.options}}</td>
+            <td>{{que.answer}}</td>
+        </tr>
+    </table>
+    <input type="button" value="add" ng-click="randomNum()">
+    <div>
+    </div>
+
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller("productController", function ($scope) {
+
+            $scope.quearray = [
+                {
+                    id: 1,
+                    questionText: "Capital of India?",
+                    options: ["Delhi", "Mumbai", "Pune", "Hydrabad"],
+                    answer: "a"
+                },
+
+                {
+                    id: 2,
+                    questionText: "Capital of Maharashtra?",
+                    options: ["Delhi", "Mumbai", "Pune", "Hydrabad"],
+                    answer: "b"
+                },
+
+                {
+                    id: 3,
+                    questionText: "Capital of Jammu and kashmir?",
+                    options: ["Delhi", "Shrinagar", "Pune", "Hydrabad"],
+                    answer: "b"
+                },
+
+                {
+                    id: 4,
+                    questionText: "Capital of Goa?",
+                    options: ["Panji", "Mumbai", "Pune", "Hydrabad"],
+                    answer: "a"
+                },
+
+
+                {
+                    id: 5,
+                    questionText: "Capital of MadhyaPradesh?",
+                    options: ["Delhi", "Mumbai", "Bhopal", "Hydrabad"],
+                    answer: "c"
+                },
+
+                {
+                    id: 6,
+                    questionText: "Capital of Gujrat?",
+                    options: ["Delhi", "Gandhinagar", "Pune", "Hydrabad"],
+                    answer: "b"
+                },
+
+                {
+                    id: 7,
+                    questionText: "Capital of Himachal Pradesh?",
+                    options: ["Delhi", "Mumbai", "Pune", "Shimla"],
+                    answer: "d"
+                },
+
+                {
+                    id: 8,
+                    questionText: "Capital of Meghalaya?",
+                    options: ["Delhi", "Mumbai", "Shillong", "Hydrabad"],
+                    answer: "c"
+                },
+
+                {
+                    id: 9,
+                    questionText: "Capital of Nagaland?",
+                    options: ["Delhi", "Mumbai", "Kohima", "Hydrabad"],
+                    answer: "c"
+                },
+
+                {
+                    id: 10,
+                    questionText: "Capital of Sikkim?",
+                    options: ["Delhi", "Mumbai", "Gangtok", "Hydrabad"],
+                    answer: "c"
+                },
+
+            ]
+
+            $scope.randomNum = function () {
+                $scope.random = Math.floor(Math.random() * 10 + 1);
+                console.log($scope.random);
+                if ($scope.random < 5)
+                    array1 = [$scope.random, $scope.random + 1, $scope.random + 2, $scope.random + 3, $scope.random + 4];
+                else
+                    array1 = [$scope.random, $scope.random - 1, $scope.random - 2, $scope.random - 3, $scope.random - 4];
+
+                console.log(array1);
+
+                for (var i = 0; i < 5; i++) {
+                    var k = array1[i];
+                    document.write($scope.quearray[k].id + "]. " + $scope.quearray[k].questionText + "<br >");
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

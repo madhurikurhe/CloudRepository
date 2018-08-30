@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Page Title</title>
+
+</head>
+<script>
+    var makeCustomer = (function () {
+        var obj = {};
+        obj.getData = function () {
+
+            return new Promise((resolve, reject) => {
+                var r = Math.random() * 100;
+                if ((r) > 50) {
+                    resolve('Success!' + r);
+                } else {
+                    reject('error');
+                }
+            });
+
+        }
+        return obj;
+    }());
+    makeCustomer.getData()
+        .then(function (result) {
+            console.log(result);
+            
+        },function (error) {
+            console.log(error);
+        });
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

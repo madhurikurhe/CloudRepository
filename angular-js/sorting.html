@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <title>Page Title</title>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+    Order By:
+    <select ng-model="sortColumn">
+        <option value="name">Name in ASC</option>
+        <option value="dateOfBirth">Date Of Birth in ASC</option>
+        <option value="gender">Gender in ASC</option>
+        <option value="-Salary">Salary in DSC</option>
+
+    </select>
+    <input type="text" placeholder="Search here" ng-model="searchText">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>dateOfBirth</th>
+                <th>Gender</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in employees | filter:searchText">
+                <td>{{employee.name}}</td>
+                <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.Salary}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myController", function ($scope) {
+            var employees = [
+                { name: "Madhu", dateOfBirth: new Date("August 24,1990"), gender: "Female", Salary: 500000 },
+                { name: "Trisha", dateOfBirth: new Date("August 24,1991"), gender: "Female", Salary: 550000 },
+                { name: "Prasad", dateOfBirth: new Date("August 24,1970"), gender: "male", Salary: 450000 },
+                { name: "Advita", dateOfBirth: new Date("August 24,1980"), gender: "Female", Salary: 600000 },
+                { name: "Vishal", dateOfBirth: new Date("August 24,1982"), gender: "male", Salary: 800000 },
+            ];
+
+            $scope.employees = employees;
+            $scope.sortColumn = "name";
+        });
+    </script>
+</body>
+
+</html>

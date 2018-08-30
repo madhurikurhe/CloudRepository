@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="studentDetails.js">
+
+</script>
+<style>
+    .bb{
+        background-color:aquamarine;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        border: sienna;
+    }
+
+    table,td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+</style>
+
+</head>
+<body class="bb">
+<h1>
+    Student Details
+</h1>
+<div>
+    <table>
+     <tr>
+     <td>Roll No:</td>
+     <td><input id="roll" type="text" name="roll"></td>
+    </tr>
+
+    <tr>
+    <td>Name:
+    </td>
+    <td><input id="name" type="text" name="name" >
+    </td>
+</tr>
+
+<tr>
+<td>Age:</td>
+<td><input id="age" type="text" name="age" >
+</td>
+</tr>
+
+<tr>
+<td>Email:</td>
+<td><input id="email" type="email" name="email" >
+</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td><input id="date" type="date" name="date" >
+</td>
+</tr>
+<tr>
+<td>Male:<input id="male" type="radio" value="male" name="gender"></td>
+<td>Female:<input id="female" type="radio" value="female" name="gender"></td>
+        </tr>
+
+    <tr>
+    <td><input type="button" class="navItem" id="add" name="button" value="ADD" onclick="add();"><br></td>
+    <td><input type="button" class="update" id="update" name="update" value="Update" onclick="update();"><br></td>
+    
+    </tr>
+    
+</table>
+</div>
+   
+<form>
+<div class="wrapper" ng-app="myApp" ng-controller="myCtrl">
+    <div class="profile">
+       <table id= "userdata" border="2">
+      <thead>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Gender</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            
+                
+            </thead>
+          <tbody>
+    
+           </tbody>
+       </table>
+    <div>
+        {{Details}}
+    </div>
+    </div>
+    </div>
+</form>
+</body>
+</html>

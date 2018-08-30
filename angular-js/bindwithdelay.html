@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        <p><h1>Employee details:</h1>{{"RollNo:" +employee.rollNo+ " Company: "+employee.company +" Salary: " +employee.salary }}</p>
+
+
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function ($scope,$timeout) {
+            $scope.employee = {
+                rollNo: 101,
+                company: 'SwabhavTechlabs',
+                salary: 30000
+            }
+
+    
+            $timeout(function () {
+                $scope.employee.company = "AurionPro";
+            }, 2000);
+        });
+  
+    </script>
+</body>
+
+</html>

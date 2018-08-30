@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Page Title</title>
+
+</head>
+<script>
+    function Customer(id, name) {
+        var _name, _id;
+        if (id > 0 && name.length > 0) {
+            _id = id;
+            _name = name;
+        }
+
+        this.setName = function (name) {
+            _name = name;
+        }
+
+        this.getName = function () {
+            return _name;
+        }
+
+        this.setID = function (id) {
+            _id = id;
+        }
+
+        this.getID = function () {
+            return _id;
+        }
+
+    }
+
+    var c1 = new Customer(101, "madhu");
+    c1.setName("Madhuri");
+    console.log(c1.getName());
+
+    c1.setID(103);
+    console.log(c1.getID());
+
+    console.log(c1);
+
+</script>
+
+<body>
+
+</body>
+
+</html>

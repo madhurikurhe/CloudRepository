@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <title>Student app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+
+    <script src="index.js"></script>
+
+    <style>
+        .bb {
+            background-color: aquamarine;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            border: sienna;
+        }
+
+        table,
+        td,
+        th {
+            border-collapse: collapse;
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body class="bb" ng-app="student-app" ng-controller="student-controller">
+
+    <div>
+        <h1>Student Details</h1>
+        <div>
+            <div>
+                <form name="studentForm" novalidate ng-submit="submitData(studentForm.$valid)">
+
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>
+                                <input ng-model="student.name" required type="text" name="name" id="name" placeholder="Name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td>
+                                <input type="number" name="age" ng-model="student.age" id="age" placeholder="Age" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td>
+                                <input type="date" name="date" ng-model="student.date" id="date" placeholder="dd/mm/yyyy" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                <input required type="email" name="email" id="email" ng-model="student.email" placeholder="name@example.com">
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>Male</td>
+                            <td>
+                                <input ng-value="'male'" type="radio" id="male" ng-model="student.gender" name="gender">
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                                <td>Female</td>
+                            <td>
+                                <input ng-value="'female'" type="radio" ng-model="student.gender" id="female" name="gender">
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Roll No</td>
+                            <td>
+                                <input type="number" ng-model="student.rollNo" name="rollNumber" id="rollNumber" required placeholder="Roll number">
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <button type="submit" ng-disabled="studentForm.$invalid">Add student</button>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            </form>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <div ng-if="loading === true">
+
+                    </div>
+                    <table>
+                        <thead>
+                            <tr style="text-align: center">
+
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Roll No</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="(key, student) in students track by $index">
+
+                            <tr style="text-align: center">
+
+                                <td>{{student.name}}</td>
+                                <td>{{student.age}}</td>
+                                <td>{{student.email}}</td>
+                                <td>{{student.gender}}</td>
+                                <td>{{student.rollNo}}</td>
+                                <td>{{student.date | date}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+</body>
+
+</html>

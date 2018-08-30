@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <div>
+        FirstName={{employee.firstName}}
+    </div>
+
+    <div>
+        LastName={{employee.LastName}}
+    </div>
+
+    <div>
+        Gender={{employee.gender}}
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        var employee;
+        app.controller("myCtrl", function ($scope) {
+            $scope.employee = {
+                firstName: "Madhuri",
+                lastName: "Unde",
+                gender: "female"
+            };
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    
+            <h1>One way Binding</h1>
+            <p>Employee details:{{ employee.rollNo+ " "+employee.name +" " +employee.salary }}</p>
+        </div>
+    
+    <script>
+
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.employee = {
+                rollNo: 101,
+                name: 'Madhuri',
+                salary: 30000
+            }
+        });
+    </script>
+</body>
+
+</html>

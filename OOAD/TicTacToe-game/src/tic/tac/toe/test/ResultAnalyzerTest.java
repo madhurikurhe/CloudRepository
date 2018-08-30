@@ -10,11 +10,12 @@ import tic.tac.toe.Mark;
 import tic.tac.toe.ResultAnalyzer;
 
 public class ResultAnalyzerTest {
+	Board board = new Board();
+	ResultAnalyzer analyzer = new ResultAnalyzer();
 
 	@Test
 	public void hasWonTestFirstRow() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
+
 		board.setLocation(0, Mark.CROSS);
 		board.setLocation(1, Mark.CROSS);
 		board.setLocation(2, Mark.CROSS);
@@ -26,8 +27,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void hasWonTestSecondRow() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
 		board.setLocation(3, Mark.CROSS);
 		board.setLocation(4, Mark.CROSS);
 		board.setLocation(5, Mark.CROSS);
@@ -39,8 +38,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void hasWonTestThirdRow() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
 		board.setLocation(6, Mark.CROSS);
 		board.setLocation(7, Mark.CROSS);
 		board.setLocation(8, Mark.CROSS);
@@ -52,8 +49,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void hasWonTestFirstColumn() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
 		board.setLocation(0, Mark.CROSS);
 		board.setLocation(3, Mark.CROSS);
 		board.setLocation(6, Mark.CROSS);
@@ -65,8 +60,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void hasWonTestSecondColumn() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
 		board.setLocation(1, Mark.CROSS);
 		board.setLocation(4, Mark.CROSS);
 		board.setLocation(7, Mark.CROSS);
@@ -78,8 +71,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void hasWonTestThirdColumn() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
 		board.setLocation(2, Mark.CROSS);
 		board.setLocation(5, Mark.CROSS);
 		board.setLocation(8, Mark.CROSS);
@@ -91,8 +82,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void hasWonTestFirstDiagonal() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
 		board.setLocation(0, Mark.CROSS);
 		board.setLocation(4, Mark.CROSS);
 		board.setLocation(8, Mark.CROSS);
@@ -104,8 +93,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void hasWonTestSecondDiagonal() {
-		Board board = new Board();
-		ResultAnalyzer analyzer = new ResultAnalyzer();
 		board.setLocation(2, Mark.CROSS);
 		board.setLocation(4, Mark.CROSS);
 		board.setLocation(6, Mark.CROSS);
@@ -117,7 +104,6 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void checkIsBoardFull() {
-		Board board = new Board();
 		board.setLocation(0, Mark.CROSS);
 		board.setLocation(1, Mark.CROSS);
 		board.setLocation(2, Mark.CROSS);
@@ -133,13 +119,12 @@ public class ResultAnalyzerTest {
 
 	@Test
 	public void checkIfReturnsPlaying() {
-		Board board = new Board();
 		ResultAnalyzer result = new ResultAnalyzer();
 		board.setLocation(6, Mark.CROSS);
 		board.setLocation(7, Mark.NOUGHT);
 		board.setLocation(8, Mark.CROSS);
 		GameState state = result.analyze(board);
-		assertTrue(GameState.PLAYING==state);
+		assertTrue(GameState.PLAYING == state);
 	}
 
 }

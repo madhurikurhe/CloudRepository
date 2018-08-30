@@ -22,17 +22,9 @@ public class Customer {
 		return orders;
 	}
 
-	public void setOrders(List<LineItem> orders) {
-		this.orders = orders;
-	}
-
-	public List<LineItem> getOrder() {
-		return orders;
-
-	}
-
 	public void addOrder(LineItem lineItem, List<LineItem> orderItems) {
 
 		orderItems.add(lineItem);
 	}
+
 }

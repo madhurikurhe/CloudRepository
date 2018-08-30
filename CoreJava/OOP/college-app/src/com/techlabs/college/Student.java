@@ -12,5 +12,7 @@ public class Student extends Person {
 	public void setBranch(Branch branch) {
 		this.branch = branch;
 	}
+	
+	
 
 }

@@ -6,9 +6,9 @@ public class StudentManager {
 		if (studentID.equals("12345")) {
 			System.out.println("Student Found");
 			return new Student();
-		} else {
+		} 
 			throw new StudentNotFoundException("Student ID not found");
-		}
+		
 
 	}
 }

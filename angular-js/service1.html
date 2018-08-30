@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<script>
+    var app = angular.module('app', []);
+
+    app.service('MathService', function ($log, $q) {
+        $log.info("Inside Mathservice");
+        const obj = {};
+        obj.cubeEvenNo = function (a) {
+            return a * a * a
+        }
+
+        obj.cubeOddNo = function (number) {
+            return $q(function (resolve, reject) {
+
+                if ((number % 2 != 0)) {
+                    resolve('Ok, ' + number * number * number);
+                } else {
+                    reject('Error');
+                }
+
+            });
+
+        }
+        return obj;
+    });
+
+    app.controller('CalculatorController', function ($scope, MathService, $log) {
+        $log.log(MathService.cubeEvenNo(2));
+
+        var promise = MathService.cubeOddNo(5);
+        promise.then(function (response) {
+            $log.info(response);
+            console.log('Success: ');
+        }, function (reason) {
+            console.log('Failed: ');
+        });
+        $log.info("End of Mathservices");
+    });
+    
+</script>
+
+<body>
+    <div ng-app="app">
+        <div ng-controller="CalculatorController">
+
+        </div>
+    </div>
+</body>
+
+</html>

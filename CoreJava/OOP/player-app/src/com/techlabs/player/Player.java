@@ -13,10 +13,10 @@ public class Player {
 	public Player(String name, int age) {
 		this.name = name;
 		this.age = age;
-		id = playerID++;
+		 playerID++;
 	}
 
 	public int getID() {
-		return id;
+		return playerID;
 	}
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-controller="myCtrl" ng-style="{'background-color': selectedcolor}">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" ng-model="name">
+            </td>
+        </tr>
+        <tr>
+            <td> Background Color</td>
+            <td>
+
+                <select ng-model="selectedcolor" ng-options="color.name as color.name for color in backgroundColors">
+                </select>
+            </td>
+        </tr>
+
+    </table>
+    <hr>
+
+    <div>{{ name }}</div>
+
+
+    <script>
+        var app = angular.module('plunker', []);
+
+        app.controller('MainCtrl', function ($scope) {
+            $scope.backgroundColors = [
+                { name: "Red", hex: "#F21B1B" },
+                { name: "Blue", hex: "#0099CC" },
+                { name: "Green", hex: "#07BA16" },
+                { name: "Yellow", hex: "#FFFF99" }];
+        });
+    </script>
+</body>
+
+</html

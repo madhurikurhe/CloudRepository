@@ -31,9 +31,8 @@ public class Game {
 			getCurrentPlayer();
 			changePlayer();
 			return true;
-		} else {
-			throw new Exception("Invalid Entry!!!! try again");
 		}
+		throw new Exception("Invalid Entry!!!! try again");
 
 	}
 

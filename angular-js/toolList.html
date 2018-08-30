@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .done {
+            text-decoration: line-through;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+
+</head>
+
+<body ng-app='myApp' ng-controller='myCtrl'>
+    <div>Enter Task:
+        <input type='text' ng-model='newTask' ng-keypress="checkIfEnterKeyIsPressed($event,newTask)" />
+        
+    </div>
+
+    <div ng-repeat='task in taskList'>
+
+        <input type='checkbox' ng-model='task.done' />
+
+        <span ng-class='{done: task.done}'>{{task.task}}</span>
+    </div>
+
+    <script>
+        angular.module("myApp", [])
+            .controller("myCtrl", ['$scope', function ($scope) {
+
+                $scope.taskList = [];
+
+                $scope.checkIfEnterKeyIsPressed = function ($event,task) {
+                    var keyCode = $event.which || $event.keyCode;
+                    if (keyCode === 13) {
+                        $scope.taskList.push({
+                            done: false,
+                            task: task
+                        });
+                    }
+
+                };
+
+
+            }
+            ]);
+    </script>
+
+</body>
+
+</html>

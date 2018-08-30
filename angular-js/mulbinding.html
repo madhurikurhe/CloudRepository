@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script src="multibinding.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    Message
+    <input type="text" ng-model="message">
+    <table>
+        <tr>
+            <td> background-color</td>
+            <td>
+                <select ng-model="selectedcolor" ng-options="color.name as color.name for color in backgroundColors">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Foreground-color</td>
+            <td>
+                <select ng-model="fcolor" ng-options="color.name as color.name for color in foregroundColors">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Font Size</td>
+            <td>
+                <select ng-model="selectedSize" ng-options="x for x in fontSize">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Font Style</td>
+            <td>
+                <select ng-model="selectedStyle" ng-options="x for x in fontStyle">
+                </select>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <p ng-style="{'background-color': selectedcolor ,'color':fcolor,'font-size':selectedSize,'font-family':selectedStyle}">
+        {{message}}
+    </p>
+
+</body>
+
+</html>

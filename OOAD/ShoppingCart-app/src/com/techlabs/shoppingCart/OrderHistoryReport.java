@@ -35,7 +35,7 @@ public class OrderHistoryReport {
 		System.out.println("Customer Name:" + customer.getName());
 		System.out.println("\nDate:" + order.getDate());
 
-		System.out.println("\nTotal items in Cart:"
+		System.out.println("\nTotal items in ./Cart:"
 				+ order.getOrderItems().size());
 
 		for (LineItem l : orderItems) {

@@ -20,9 +20,7 @@ public class BoardTest {
 
 	@Test
 	public void testToCheckIsBoardClear() {
-		// Board b = new Board();
 		Cell c = new Cell();
-		// b.init();
 		assertTrue(c.getMark() == Mark.EMPTY);
 
 	}

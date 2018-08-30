@@ -4,6 +4,7 @@ import com.techlabs.simplefactory.AudiFactory;
 import com.techlabs.simplefactory.BMWFactory;
 import com.techlabs.simplefactory.IAutoFactory;
 import com.techlabs.simplefactory.IAutomobile;
+import com.techlabs.simplefactory.ToyotoFactory;
 
 public class FactoryTest {
 	public static void main(String[] args) {
@@ -18,7 +19,7 @@ public class FactoryTest {
 		auto1.start();
 		auto1.stop();
 
-		IAutoFactory f2 = new BMWFactory();
+		IAutoFactory f2 = new ToyotoFactory();
 		IAutomobile auto2 = f2.make();
 		auto2.start();
 		auto2.stop();

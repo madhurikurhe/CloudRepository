@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    
-    <title>Page Title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
-    
+
+  <title>Page Title</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 </head>
+
 <body ng-app="SwabhavModuleA">
 
-    <div ng-controller="ControllerA">
-        <p>{{ name |uppercase}}</p>
-        <P>{{company}}</P>
-    </div>  
-    
-          <div ng-controller="ControllerB">
-            <p> {{ name |lowercase }}</p>
-            <P>{{company}}</P>
-          </div>
-        </div>
-  
-        <div ng-controller="ControllerC">
-            <p> {{ name }}</p>
-            <P>{{company}}</P>
-          </div>
-                
-            <script>
+  <div ng-controller="ControllerA">
+    <p>{{ name |uppercase}}</p>
+    <P>{{company}}</P>
+  </div>
+  <hr>
+  <div ng-controller="ControllerB">
+    <p> {{ name |lowercase }}</p>
+    <P>{{company}}</P>
+  </div>
+  </div>
+  <hr>
+  <div ng-controller="ControllerC">
+    <p> {{ name }}</p>
+    <P>{{company}}</P>
+  </div>
 
-              var moduleB = angular.module("SwabhavModuleB", []);
-              moduleB.controller("ControllerB", function($scope,$rootScope) {
-                  console.log("Inside B");
-                $scope.name = "ControllerB";
-              console.log($rootScope.company);
-                });
+  <script>
 
-              var moduleC = angular.module("SwabhavModuleC", []);
-            moduleC.controller("ControllerC", function($scope,$rootScope) {
-                console.log("Inside C");
-            $scope.name = "ControllerC";
-            console.log($rootScope.company);
-                });
+    var moduleB = angular.module("SwabhavModuleB", []);
+    moduleB.controller("ControllerB", function ($scope, $rootScope) {
+      console.log("Inside B");
+      $scope.name = "ControllerB";
+      console.log($rootScope.company);
+    });
 
-              var moduleA = angular.module("SwabhavModuleA", ["SwabhavModuleB", "SwabhavModuleC"]);
-            moduleA.controller("ControllerA", function($scope,$rootScope) {
-            console.log("Inside A");
-            $scope.name = "ControllerA";
-            $rootScope.company="SwabhavTechlabs";
-            
-                });
+    var moduleC = angular.module("SwabhavModuleC", []);
+    moduleC.controller("ControllerC", function ($scope, $rootScope) {
+      console.log("Inside C");
+      $scope.name = "ControllerC";
+      console.log($rootScope.company);
+    });
 
+    var moduleA = angular.module("SwabhavModuleA", ["SwabhavModuleB", "SwabhavModuleC"]);
+    moduleA.controller("ControllerA", function ($scope, $rootScope) {
+      console.log("Inside A");
+      $scope.name = "ControllerA";
+      $rootScope.company = "SwabhavTechlabs";
 
-       
-                   </script>
+    });
+
+  </script>
 </body>
+
 </html>

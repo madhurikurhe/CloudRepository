@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<style>
+    .bb {
+        background-color: aquamarine;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        border: sienna;
+    }
+
+    table,
+    td,
+    th {
+        border-collapse: collapse;
+        border: 1px solid black;
+        text-align: center;
+        padding: 8px;
+        table-layout: fixed;
+
+    }
+
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 10px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .pink {
+        background-color: lightpink;
+    }
+
+</style>
+
+<body ng-app="helloApp" ng-controller="CompanyCtrl" class="bb">
+
+
+    <form ng-submit="addRow()">
+        <div>
+            <label>ID</label>
+            <div>
+                <input type="text" name="id" ng-model="id" />
+            </div>
+        </div>
+
+        <div>
+            <label>First Name</label>
+            <div>
+                <input type="text" name="fname" ng-model="fname" />
+            </div>
+        </div>
+
+        <div>
+            <label>Last Name</label>
+            <div>
+                <input type="text" name="lname" ng-model="lname" />
+            </div>
+        </div>
+
+        <div>
+            <label>Card Type</label>
+            <div>
+
+                <select ng-model="selectedCard" ng-options="x for x in cardType">
+
+                </select>
+
+            </div>
+        </div>
+
+        <div>
+            <label>Select Gender</label>
+            <div>
+
+                <input type="radio" ng-model="selectedGender" value="Male">Male
+                <input type="radio" ng-model="selectedGender" value="Female">Female
+
+
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </div>
+
+
+    </form>
+
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>First Name
+            </th>
+            <th>Last Name
+            </th>
+            <th>Card Type </th>
+            <th>Gender</th>
+            <th>Remove Row</th>
+        </tr>
+        <tr ng-repeat="company in companies" ng-class={pink:(company.gender=='Female')}>
+            <td>{{company.id}}</td>
+            <td>{{company.fname}}
+            </td>
+            <td>{{company.lname}}
+            </td>
+
+            <td>{{company.cardType}}</td>
+            <td>{{company.gender}}</td>
+            <td>
+                <button class="remove" ng-click="removeChoice($index)">Delete</button>
+            </td>
+
+
+        </tr>
+    </table>
+
+    <script>
+
+        var helloApp = angular.module("helloApp", []);
+        
+        helloApp.controller("CompanyCtrl", function ($scope) {
+            $scope.choicesA = [];
+            $scope.cardType = ["Visa", "MasterCard", "American Express"];
+            $scope.gender = ["Male", "Female"];
+            $scope.color = "pink";
+            $scope.companies = [
+
+            ];
+            $scope.addRow = function () {
+                if (!$scope.id || !$scope.fname || !$scope.lname || !$scope.cardType || !$scope.gender)
+                    alert("Some fields are empty");
+                else {
+                    $scope.companies.push({
+                        'id': $scope.id, 'fname': $scope.fname, 'lname': $scope.lname,
+                        'cardType': $scope.selectedCard, 'gender': $scope.selectedGender
+                    });
+
+                    var newItemNo = $scope.choicesA.length + 1;
+                    $scope.choicesA.push({
+                        'id': 'choice' + newItemNo
+                    });
+
+                    $scope.id = '';
+                    $scope.fname = '';
+                    $scope.lname = '';
+
+                }
+            };
+
+            $scope.removeChoice = function (ind) {
+                if (confirm('Are you sure you want to delete this?')) {
+                    $scope.companies.splice(ind, 1);
+                }
+            };
+        });
+
+    </script>
+</body>
+
+</html>

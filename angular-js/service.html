@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<script>
+    var app = angular.module('app', []);
+
+    app.service('MathService', function () {
+        this.cube = function (a) {
+            return a * a * a
+        };
+    });
+
+    app.controller('CalculatorController', function ($scope, MathService) {
+
+        $scope.doCube = function () {
+            $scope.answer = MathService.cube($scope.number);
+        }
+    });
+</script>
+
+<body>
+    <div ng-app="app">
+        <div ng-controller="CalculatorController">
+            Enter a number:
+            <input type="number" ng-model="number" />
+
+            <button ng-click="doCube()">
+                Find Cube
+            </button>
+
+            <div> {{answer}}</div>
+        </div>
+    </div>
+</body>
+
+</html>
