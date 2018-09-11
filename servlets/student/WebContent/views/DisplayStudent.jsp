@@ -28,8 +28,8 @@ tr:hover {background-color:#f5f5f5;}
 
 	<%
 	ArrayList<Student> student = new ArrayList<Student>();
-if (request.getAttribute("stud") != null) {
-	student = (ArrayList<Student>)request.getAttribute("stud");
+if (request.getAttribute("students") != null) {
+	student = (ArrayList<Student>)request.getAttribute("students");
 		
 	for(Student s:student){
 %>
@@ -41,8 +41,17 @@ if (request.getAttribute("stud") != null) {
 		<tr>
 			<td>Student Name</td>
 			<td><%= s.getName() %></td>
-		</tr>
-
+		
+			<td><a href="/edit?id=<c:out value=<%=s.getId()%> />">Edit</a>
+				                        &nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>     
+				<a
+				href="/delete?id=<c:out value=<%=s.getId()%> />">Delete</a>                    
+				                    
+			</td>
+			
+</tr>
+	
 	</table>
 	<%
 }
