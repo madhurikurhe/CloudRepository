@@ -1,0 +1,41 @@
+<section>
+    <div>
+        <h3>Add Student</h3>
+    </div>
+    <div ng-form="mainForm">
+        <div  ng-form="rollForm">
+            <label for="roll">Student RollNo</label>
+            <input type="number" id="roll" placeholder="roll number" name="roll" ng-model="student.rollNo" required/>
+        </div>
+        <div ng-form="nameForm">
+            <label for="name">Student Name</label>
+            <input type="text"  id="name" placeholder="name" ng-model="student.name" required>
+        </div>
+        <div  ng-form="ageForm">
+            <label for="age">Student Age</label>
+            <input type="number"  id="age" placeholder="age" ng-model="student.age" required>
+        </div>
+        <div  ng-form="emailForm">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="email" ng-model="student.email" required>
+        </div>
+        <div  ng-form="genderForm">
+            <label for="gender" class="radio">Gender:
+                <label for="male">
+                    <input type="radio" id="male" name="gender" ng-model="student.isMale" ng-value="true" ng-checked="true"> male
+                </label>
+                <label for="female">
+                    <input type="radio" id="female" name="gender" ng-model="student.isMale" ng-value="false"> female
+                </label>
+            </label>
+        </div>
+        <div  ng-form="dateForm">
+            <label for="date" > Date
+                <input type="Date"  id="date" ng-model="student.date" required>
+            </label>
+        </div>
+        <div>
+            <button id="addStudentButton"  ng-click="addStudent(student)" ng-value="btnSwitch">Add student</button>
+        </div>
+    </div>
+</section>

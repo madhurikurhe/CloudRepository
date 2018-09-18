@@ -11,8 +11,7 @@
 	String cgpa = student.getCgpa() + "";
 	String username = (String) session.getAttribute("username");
 
-	Map<String, String> colleges = (Map<String, String>) request
-			.getAttribute("collegeNameIdMap");
+	
 %>
 
 <!DOCTYPE html>
@@ -21,6 +20,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+	.red{
+	color: red;
+	}
+</style>
 <body>
 	<h1 align="center">Edit Student</h1>
 	<div>
@@ -56,13 +60,16 @@
 
 			<label>College</label> <select name="college_name">
 				<%
+				Map<String, String> colleges = (Map<String, String>) request
+				.getAttribute("collegeNameIdMap");
+				
 					for (Map.Entry<String, String> entry : colleges.entrySet()) {
 						if (college_id == null) {
 							out.println("<option selected=" + college_id == (entry
 									.getKey())
 									+ " value="
 									+ entry.getKey()
-									+ ">"
+								+ ">"
 									+ entry.getValue() + "</option>");
 						} else {
 							out.println("<option value=" + entry.getKey() + ">"
@@ -75,13 +82,13 @@
 		</div>
 		<br>
 		<div class=red>
-			<%
-				if (request.getAttribute("error") != null) {
-					out.println("<p >" + (String) request.getAttribute("error")
-							+ "</p>");
-				}
-			%>
+		<%
+			if(request.getAttribute("error") != null){
+				out.println("<p >"+(String)request.getAttribute("error")+"</p>");
+			}
+		%>
 		</div>
+		
 
 		<input type="submit" value="Update" />
 

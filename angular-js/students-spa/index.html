@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="students-app">
+
+<head>
+    <title>Madhuri@swabhavtech</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="studentapi.css">
+    <script src="https://code.angularjs.org/1.5.1/angular.js"></script>
+    <script src="https://code.angularjs.org/1.5.1/angular-route.js"></script>
+    <script src="controllers.js"></script>
+    <script src="loginService.js"></script>
+    <script src="dataService.js"></script>
+    <script src="students-app.js"></script>
+    <script src="genderfilter.js"></script>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    td,
+    th {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+
+<body>
+    <header>
+
+        <div>
+            <div>
+                <a href="#/">STUDENT-Single Page Application</a>
+            </div><br>
+
+            <a href="#students">Home</a><br>
+            <a href="#add">Add Student</a><br>
+            <span>
+            <em >{{username}}</em></span>
+            <a href="#login" ng-show="!sessionState" ng-model="loginBtn">
+                Login</a>
+            <a href="#logout" ng-show="sessionState" ng-model="logoutBtn">
+                Logout</a>
+        </div>
+        <br><br>
+    </header>
+    <div ng-view>
+    </div>
+</body>
+
+</html>

@@ -9,7 +9,7 @@
     	String cgpa = (String)request.getAttribute("cgpa");
     	String college_id = (String) request.getAttribute("college_id");
     	String roll_no = (String) request.getAttribute("roll_no");
-    	Map<String, String> colleges = (Map<String, String>) request.getAttribute("collegeNameIdMap");
+    	
     	String username = (String) session.getAttribute("username");
     %>
     
@@ -59,12 +59,9 @@
 			<label>College</label>
 			<select name="college_name">
 			<%
+			Map<String, String> colleges = (Map<String, String>) request.getAttribute("collegeNameIdMap");
 				for(Map.Entry<String, String> entry: colleges.entrySet()){
-					if(college_id != null){
-						out.println("<option selected="+college_id == (entry.getKey())+" value="+entry.getKey()+">"+entry.getValue()+"</option>");
-					} else{
 						out.println("<option value="+entry.getKey()+">"+entry.getValue()+"</option>");
-					}
 					
 				}
 			%>

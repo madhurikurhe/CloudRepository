@@ -17,13 +17,15 @@
 	<h1 align="center">Students List</h1>
 
 	<div>
-		<a href="views/index.html" align="right">Home</a>
-<a href="/Student_App/addstudent">Add Student</a>
+		<a href="views/index.html" align="right">Home</a> <a
+			href="/Student_App/addstudent">Add Student</a>
 	</div>
 	<div style="float: right">
 
 		Username:
-<%out.println(username); %>		
+		<%
+		out.println(username);
+	%>
 		<a href="/Student_App/logout" align="right">Logout</a>
 
 	</div>
@@ -42,76 +44,71 @@ td {
 	padding: 10px;
 }
 
-
 th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
 }
 </style>
-<script language="javascript">
-function deleteRecord(id){
-    var doIt=confirm('Do you want to delete the record?');
-  if(doIt){
-   var f=document.form;
-    f.method="post";
-    f.action='../DeleteController?id='+id;
-    f.submit();
+<script>
+    function ConfirmDelete()
+    {
+      var x = confirm("Are you sure you want to delete?");
+      if (x){
+    	  location.href="/Student_App/DeleteController?id="
+				+ student.getRoll_no();
+          return true;
+      }
+      else
+        return false;
     }
-  else{
-
-    }
-}
-</script>
+</script>    
 
 	<%
 		List<Student> students = (List<Student>) request
 				.getAttribute("students");
 
+		out.println("<table>");
+		out.println("<tr>");
+		out.println("<th>");
+		out.println("Roll No");
+		out.println("</th>");
 
-	out.println("<table>");
-	out.println("<tr>");
-	out.println("<th>");
-	out.println("Roll No");
-	out.println("</th>");
+		out.println("<th>");
+		out.println("First Name");
+		out.println("</th>");
 
-	out.println("<th>");
-	out.println("First Name");
-	out.println("</th>");
-	
-	out.println("<th>");
-	out.println("Last Name");
-	out.println("</th>");
-	
-	out.println("<th>");
-	out.println("CGPA");
-	out.println("</th>");
-	
-	out.println("<th>");
-	out.println("College Details");
-	out.println("</th>");
-	
-	out.println("<th>");
-	out.println("Update Details");
-	out.println("</th>");
-	
-	out.println("<th>");
-	out.println("Delete Record");
-	out.println("</th>");
-	
-	
-	
-	out.println("</tr>");
-	
-	for (Student student : students) {
+		out.println("<th>");
+		out.println("Last Name");
+		out.println("</th>");
+
+		out.println("<th>");
+		out.println("CGPA");
+		out.println("</th>");
+
+		out.println("<th>");
+		out.println("College Details");
+		out.println("</th>");
+
+		out.println("<th>");
+		out.println("Update Details");
+		out.println("</th>");
+
+		out.println("<th>");
+		out.println("Delete Record");
+		out.println("</th>");
+
+		out.println("</tr>");
+
+		for (Student student : students) {
 
 			out.println("<tr>");
 			out.println("<td>");
 			out.println(student.getRoll_no());
 			out.println("</td>");
-			
+
 			out.println("<td>");
 			out.println(student.getFirstName());
 			out.println("</td>");
@@ -121,7 +118,7 @@ function deleteRecord(id){
 			out.println("</td>");
 
 			out.println("<td>");
-			out.println( student.getCgpa());
+			out.println(student.getCgpa());
 			out.println("</td>");
 
 			out.println("<td>");
@@ -137,16 +134,19 @@ function deleteRecord(id){
 			out.println("</td>");
 
 			out.println("<td>");
-			out.println("<a href=\"/Student_App/DeleteController?id="
-					+ student.getRoll_no() + "\">Delete</a>");
+
+			out.println("<a href="#"
+					+ "\" onclick= ConfirmDelete()>");
+
+			out.println("Delete");
+			out.println("</a>");
 			out.println("</td>");
 			
+
 			out.println("</tr>");
 		}
 
-
-	out.println("</table>");
-
+		out.println("</table>");
 	%>
 
 

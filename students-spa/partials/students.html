@@ -1,0 +1,39 @@
+<section>
+    <div>
+        <div id="loader" class="text-center" ng-hide="isLoading"></div>
+        <table id="table" class="table table-responsive table-bordered table-striped" ng-hide="!isLoading">
+            <thead>
+                <tr>
+                    <th>roll no.</th>
+                    <th>name</th>
+                    <th>age</th>
+                    <th>email</th>
+                    <th>gender</th>
+                    <th>date</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                </tr>
+            </thead>
+            <tbody id="tabledata" ng-controller="deleteCtrl">
+                <tr ng-repeat="student in list track by $index">
+                    <td>{{student.rollNo}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.age}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.isMale | gender}}</td>
+                    <td>{{student.date|date}}</td>
+                    <td>
+                        <button class="btn btn-warning glyphicon glyphicon-pencil"
+                            ng-click="gotoEdit(student.rollNo)" ng-disabled="isTrue">
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger glyphicon glyphicon-trash"
+                            ng-click="deleteStudent(student.rollNo)" ng-disabled="isTrue">
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

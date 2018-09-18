@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="students-app">
+
+<head>
+    <title>Madhuri@swabhavtech</title>
+    
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="studentapi.css">
+    <script src="https://code.angularjs.org/1.5.1/angular.js"></script>
+    <script src="https://code.angularjs.org/1.5.1/angular-route.js"></script>
+    <script src="controllers.js"></script>
+    <script src="loginService.js"></script>
+    <script src="dataService.js"></script>
+    <script src="students-app.js"></script>
+    <script src="genderfilter.js"></script>
+</head>
+
+<body><header>
+    <nav >
+        <div >
+            <div >
+                <a  href="#/">STUDENT-SPA</a>
+            </div>
+            <ul >
+                <li>
+                    <a href="#students">Home</a>
+                </li>
+                <li>
+                    <a href="#add">Add Student</a>
+                </li>
+            </ul>
+            <ul >
+                <li>
+                    <p >{{username}}</p>
+                </li>
+                <li>
+                    <a href="#login" ng-show="!sessionState" ng-model="loginBtn">
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    <a href="#logout" ng-show="sessionState" ng-model="logoutBtn">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+    <div ng-view>
+    </div>
+</body>
+
+</html>

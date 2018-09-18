@@ -21,7 +21,7 @@ import com.techlabs.service.StudentService;
 @WebServlet("/addstudent")
 public class AddStudentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	Map<String, String> colleges = new HashMap<>();
 	public AddStudentController() {
 		super();
 	}
@@ -37,20 +37,21 @@ public class AddStudentController extends HttpServlet {
 		if (username == null) {
 			response.sendRedirect("views/login.html");
 		} else {
-			Map<String, String> colleges = new HashMap<>();
-			try {
-				colleges = collegeService.getCollegeIdNames();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			for(Entry<String, String> s:colleges.entrySet()){
-				System.out.println("Key:"+s.getKey());
-				System.out.println("Value:"+s.getValue());
-			}
-			
-			request.setAttribute("collegeNameIdMap", colleges);
+			createMap(request, collegeService);
 			view.forward(request, response);
 		}
+	}
+
+	private void createMap(HttpServletRequest request,
+			CollegeService collegeService) {
+		
+		try {
+			colleges = collegeService.getCollegeIdNames();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		request.setAttribute("collegeNameIdMap", colleges);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -64,11 +65,7 @@ public class AddStudentController extends HttpServlet {
 		if (username == null) {
 			response.sendRedirect("views/login.html");
 		} else {
-			Map<String, String> colleges = new HashMap<>();
-			try {
-				colleges = collegeService.getCollegeIdNames();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
+			createMap(request, collegeService);
 			}
 			System.out.println("username is " + username);
 			String firstName = request.getParameter("first_name");
@@ -94,11 +91,18 @@ public class AddStudentController extends HttpServlet {
 			request.setAttribute("roll_no", parsedRoll_no);
 			request.setAttribute("collegeNameIdMap", colleges);
 
-			if (firstName.equals("") || lastName.equals("") || cgpa.equals("") || college_id.equals("")) {
+			if (firstName.equals("") || lastName.equals("") || cgpa.equals("")|| college_id.equals("")) {
+				
+				for(Entry<String, String> e:colleges.entrySet()){
+					System.out.println("ID:"+e.getKey());
+					System.out.println("Name:"+e.getValue());
+					
+				}
+				request.setAttribute("collegeNameIdMap", colleges);
+
 				RequestDispatcher view = request.getRequestDispatcher("views/AddStudent.jsp");
 				request.setAttribute("error", new String("Please enter all the values"));
-
-				view.forward(request, response);
+				view.forward(request, response);				
 			} else {
 				parsedRoll_no = (String) roll_no;
 				parsedfirstName = (String) firstName;
@@ -118,4 +122,4 @@ public class AddStudentController extends HttpServlet {
 
 	}
 
-}
+
