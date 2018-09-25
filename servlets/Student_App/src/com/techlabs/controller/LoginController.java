@@ -41,15 +41,13 @@ public class LoginController extends HttpServlet {
 		}
 		if(authState) {
 			System.out.println("Login successfull");
-			
 			session.setAttribute("username", username);
 			System.out.println("User name from login controller "+username);
-			
 			response.sendRedirect("/Student_App/showstudent");
 		} else {
 			System.out.println("Invalid username and password");
 			RequestDispatcher view = request.getRequestDispatcher("views/login.html");
-			session.setAttribute("username", null);
+			session.setAttribute("username", "guest");
 			view.forward(request, response);
 		}
 	}

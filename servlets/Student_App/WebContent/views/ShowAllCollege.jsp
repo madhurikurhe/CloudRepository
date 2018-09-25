@@ -18,12 +18,19 @@
 <h1>All Colleges</h1>
 <div>
 <a href="views/index.html" align="right">Home</a>
+<%if(username==null)
+	username="guest";
+else
+	 username = (String) session.getAttribute("username");
+	%>
 Username:
 <%out.println(username); %>
+<% if(username!=null){%>
 <a href="/Student_App/logout" align="right">Logout</a>
+<%}else{	%>
+<a href="/Student_App/login" align="right">Login</a>
 
-
-</div>
+<%} %></div>
 <div>
 
 			<style>

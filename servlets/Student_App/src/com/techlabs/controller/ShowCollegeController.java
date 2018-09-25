@@ -1,6 +1,7 @@
 package com.techlabs.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -26,17 +27,28 @@ public class ShowCollegeController extends HttpServlet {
 		CollegeService collegeService = new CollegeService();
 		String id = (String)request.getParameter("cid");
 		System.out.println("College id "+id);
-		
+		PrintWriter printWriter=response.getWriter();		
 		College college = null;
 		try {
+
 			college = collegeService.getCollegeById(id);
+			if(college!=null){
+			System.out.println(college.getName());
+			request.setAttribute("college", college);
+			printWriter.println("College does not exist");
+			RequestDispatcher view = request.getRequestDispatcher("views/College.jsp");
+			view.forward(request, response);	
+			}
+			else
+			{
+				RequestDispatcher view = request.getRequestDispatcher("views/College.jsp");
+				view.forward(request, response);
+				printWriter.println("College does not exist"); 
+			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			printWriter.println("College does not exist"); 
 		}
-		System.out.println(college.getName());
-		request.setAttribute("college", college);
-		RequestDispatcher view = request.getRequestDispatcher("views/College.jsp");
-		view.forward(request, response);
+		
 	}
 
 

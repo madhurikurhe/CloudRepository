@@ -19,7 +19,8 @@
 <body>
 	<h1>Students in this college</h1>
 	<div>
-		<a href="/Student_App/showstudents" align="right">Home</a> Username:
+		<a href="views/index.html" align="right">Home</a>
+		 Username:
 		<%
 			out.println(username);
 		%>

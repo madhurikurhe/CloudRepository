@@ -53,22 +53,22 @@ th {
 }
 </style>
 <script>
-    function ConfirmDelete()
+    function ConfirmDelete(roll)
     {
       var x = confirm("Are you sure you want to delete?");
       if (x){
     	  location.href="/Student_App/DeleteController?id="
-				+ student.getRoll_no();
+				+ roll;
           return true;
       }
       else
         return false;
     }
+    
 </script>    
 
 	<%
-		List<Student> students = (List<Student>) request
-				.getAttribute("students");
+		List<Student> students = (List<Student>) request.getAttribute("students");
 
 		out.println("<table>");
 		out.println("<tr>");
@@ -133,17 +133,15 @@ th {
 					+ student.getRoll_no() + "\">Edit</a>");
 			out.println("</td>");
 
-			out.println("<td>");
 
-			out.println("<a href="#"
-					+ "\" onclick= ConfirmDelete()>");
-
-			out.println("Delete");
-			out.println("</a>");
-			out.println("</td>");
-			
-
-			out.println("</tr>");
+           out.println("<td>");
+           %>
+           <input type="button" name="delete" 
+           value="Delete" style="background-color:green;
+           font-weight:bold;color:#ffffff;" onclick="ConfirmDelete(<%=student.getRoll_no()%>);" >
+           </td></tr>
+			<% 
+		
 		}
 
 		out.println("</table>");

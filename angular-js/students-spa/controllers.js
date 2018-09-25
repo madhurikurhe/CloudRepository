@@ -83,7 +83,6 @@ angular.module('studentControllers', [])
         $scope.user = {};
         $scope.user.name = "";
         $scope.user.pwd = "";
-        $scope.remember = false;
 
         $scope.login = function (user, remember) {
             if (loginService.checkLogin(user, remember)) {
