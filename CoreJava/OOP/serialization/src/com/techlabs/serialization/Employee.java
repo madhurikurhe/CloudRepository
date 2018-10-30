@@ -3,6 +3,10 @@ package com.techlabs.serialization;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String firstName;
 	private String lastName;
 	private String email;

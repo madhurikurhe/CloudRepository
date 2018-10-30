@@ -44,6 +44,7 @@ public class Reflection {
 
 		Reflection r1 = new Reflection();
 		Class c = r1.getClass();
+		System.out.println("Myname:"+c);
 
 		Constructor[] ct = c.getDeclaredConstructors();
 		for (int i = 0; i < ct.length; i++) {

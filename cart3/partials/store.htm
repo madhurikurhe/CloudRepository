@@ -1,0 +1,36 @@
+﻿<p>
+    Welcome to the DMart <br />
+    
+</p>
+
+<p>
+    Search: <input ng-model="search">
+</p>
+
+<table>
+    <tr>
+        <td class="text-center">
+            <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                <i/>
+                <span class="glyphicon glyphicon-shopping-cart"></span>    
+                <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+            </a>
+        </td>
+    </tr>
+    <tr ng-repeat="product in store.products | orderBy:'name' | filter:search" >
+        <td><img ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}" /></td>
+        <td>
+            <a href="#/products/{{product.id}}"><b>{{product.name}}</b></a>
+            {{product.description}}
+        </td>
+        <td>
+            {{product.price | currency}}
+        </td>
+        <td>
+            <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
+                Add to cart
+            </a>
+        </td>
+    </tr>
+    
+</table>

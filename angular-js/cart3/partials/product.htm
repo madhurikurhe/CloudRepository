@@ -1,6 +1,6 @@
 ﻿<p class="text-info">
-    <img ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}"/>
-    {{product.name}}: {{product.description}}<br />
+    <img ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}" /> {{product.name}}: {{product.description}}
+    <br />
 </p>
 <div>
     <div>
@@ -10,34 +10,27 @@
                     <td>
                         <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
                             <i />
-                            <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
-                            <span ng-show="cart.getTotalCount(product.id) > 0"><br />This item added to cart</span>
+                            <b>{{cart.getTotalCount()}}</b> items,
+                            <b>{{cart.getTotalPrice() | currency}}</b>
+                            <span ng-show="cart.getTotalCount(product.id) > 0">
+                                <br />This item added to cart</span>
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td ><b>Warrenty</b></td>
-                    <td ><h2>{{product.cal}}</h2></td>
-                    <td />
-                </tr>
+
             </table>
         </div>
 
         <div>
-            <button 
-                ng-click="cart.addItem(product.id, product.name, product.price, 1)">
+            <button class="btn  btn-success" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
                 <i/> Add to cart
             </button>
-            <button 
-                ng-click="cart.addItem(product.id, product.name, product.price, -10000)"
-                ng-disabled="cart.getTotalCount(product.id) < 1">
+            <button class="btn  btn-danger" ng-click="cart.addItem(product.id, product.name, product.price, -10000)" ng-disabled="cart.getTotalCount(product.id) < 1">
                 <i/> Remove from cart
             </button>
-            <button
-                onclick="window.location.href=''">
+            <button class="btn btn-primary" onclick="window.location.href=''">
                 <i/> Continue shopping
             </button>
         </div>
     </div>
 </div>
-

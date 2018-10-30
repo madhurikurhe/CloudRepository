@@ -1,0 +1,40 @@
+<p class="text-info">
+
+    <img ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}"/>
+    {{product.name}}: {{product.description}}<br />
+</p>
+<div>
+    <div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <a href="partials/ethnic.html#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                            <i />
+                            <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                            <span ng-show="cart.getTotalCount(product1.id) > 0"><br />This item added to cart</span>
+                        </a>
+                    </td>
+                </tr>
+             
+            </table>
+        </div>
+
+        <div>
+            <button 
+                ng-click="cart.addItem(product1.id, product1.name, product1.price, 1)">
+                <i/> Add to cart
+            </button>
+            <button 
+                ng-click="cart.addItem(product1.id, product1.name, product1.price, -10000)"
+                ng-disabled="cart.getTotalCount(product1.id) < 1">
+                <i/> Remove from cart
+            </button>
+            <button
+                onclick="window.location.href=''">
+                <i/> Continue shopping
+            </button>
+        </div>
+    </div>
+</div>
+

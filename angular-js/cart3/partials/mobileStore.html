@@ -1,0 +1,50 @@
+<p class="text-info">
+    Welcome to the Mobile Store.
+    <br />
+
+</p>
+
+<p>
+    Search:
+    <input ng-model="search">
+</p>
+
+<table class="table">
+    <tr class="well">
+        <td class="tdRight" colspan="4">
+            <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                <i class="icon-shopping-cart" />
+                <b>{{cart.getTotalCount()}}</b> items,
+                <b>{{cart.getTotalPrice() | currency}}</b>
+            </a>
+        </td>
+    </tr>
+
+
+    <tr class="col-md-4 col-sm-12" ng-repeat="product in store.products |orderBy:'price' | filter :'mobile'| filter:search">
+        <td class="tdLeft">
+            <img class="img-responsive smaller" ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}" />
+        </td>
+        <td class="tdLeft">
+            <a href="#/products/{{product.id}}">
+                <b>{{product.name}}</b>
+            </a>
+            <br /> {{product.description}}
+            <br> {{product.price | currency}}
+            <br>
+            <a class="btn btn-info" href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
+                add to cart
+            </a>
+        </td>
+    </tr>
+    </div>
+    <tr class="well">
+        <td class="tdRight" colspan="4">
+            <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                <i class="icon-shopping-cart" />
+                <b>{{cart.getTotalCount()}}</b> items,
+                <b>{{cart.getTotalPrice() | currency}}</b>
+            </a>
+        </td>
+    </tr>
+</table>

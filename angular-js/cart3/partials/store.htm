@@ -1,36 +1,51 @@
-﻿<p>
-    Welcome to the DMart <br />
-    
+﻿<p class="text-info">
+    Welcome to the Fashion Factory.
+    <br />
+
 </p>
 
 <p>
-    Search: <input ng-model="search">
+    Search:
+    <input ng-model="search">
 </p>
 
-<table>
-    <tr>
-        <td class="text-center">
+<table class="table">
+    <tr class="well">
+        <td class="tdRight" colspan="4">
             <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
-                <i/>
-                <span class="glyphicon glyphicon-shopping-cart"></span>    
-                <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                <i class="icon-shopping-cart" />
+                <b>{{cart.getTotalCount()}}</b> items,
+                <b>{{cart.getTotalPrice() | currency}}</b>
             </a>
         </td>
     </tr>
-    <tr ng-repeat="product in store.products | orderBy:'name' | filter:search" >
-        <td><img ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}" /></td>
-        <td>
-            <a href="#/products/{{product.id}}"><b>{{product.name}}</b></a>
-            {{product.description}}
-        </td>
-        <td>
-            {{product.price | currency}}
-        </td>
-        <td>
-            <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
-                Add to cart
+
+    <div>
+        <tr class="col-md-4 col-sm-12" ng-repeat="product in store.products | filter:search">
+            <td class="text-left">
+                <img class="img-responsive smaller" ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}" />
+            </td>
+            <td class="text-left">
+                <a class="btn btn-link" href="#/products/{{product.id}}">
+                    <b>{{product.name}}</b>
+                </a>
+                <br /> {{product.description}}
+                <br> {{product.price | currency}}
+                <br>
+                <a href="" class="btn btn-info" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
+                    add to cart
+                </a>
+            </td>
+        </tr>
+
+    </div>
+    <tr class="well">
+        <td class="tdRight" colspan="4">
+            <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                <i class="icon-shopping-cart" />
+                <b>{{cart.getTotalCount()}}</b> items,
+                <b>{{cart.getTotalPrice() | currency}}</b>
             </a>
         </td>
     </tr>
-    
 </table>

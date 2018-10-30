@@ -28,18 +28,6 @@ public class FileTest {
 		  BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
 		  String s = b.readLine();      
 		  System.out.println(s);
-/*
-		
-		int n = 0;
-		try {
-			while ((n = fi.read()) != -1) {
-				System.out.println((char) n);
-			}
-			fi.close();
-		} catch (IOException e) {
-			System.out.println("Error in opening file");
-			e.printStackTrace();
-		}
-*/
+
 	}
 }

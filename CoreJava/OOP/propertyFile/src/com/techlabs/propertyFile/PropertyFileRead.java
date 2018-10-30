@@ -5,7 +5,7 @@ import java.util.Properties;
 
 public class PropertyFileRead {
 	public static void main(String[] args) throws Exception {
-		FileReader reader = new FileReader("user.properties");
+		FileReader reader = new FileReader("property/user.properties");
 
 		Properties properties = new Properties();
 		properties.load(reader);

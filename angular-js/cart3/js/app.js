@@ -1,32 +1,53 @@
+// the route provides parses the URL and injects the appropriate partial page
 
 var storeApp = angular.module('AngularStore', []).
-  config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
+  config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
       when('/store', {
         templateUrl: 'partials/store.htm',
-        controller: storeController 
+        controller: storeController
       }).
       when('/products/:productId', {
         templateUrl: 'partials/product.htm',
+        controller: storeController
+      }).
+
+      when('/fashion', {
+        templateUrl: 'partials/ethnicStore.html',
         controller: storeController
       }).
       when('/cart', {
         templateUrl: 'partials/shoppingCart.htm',
         controller: storeController
       }).
+
+      when('/men', {
+        templateUrl: 'partials/menStore.html',
+        controller: storeController
+      }).
+
+      when('/mobile', {
+        templateUrl: 'partials/mobileStore.html',
+        controller: storeController
+      }).
+
+
       otherwise({
         redirectTo: '/store'
       });
-}]);
+  }]);
 
-
+//common shopping cart and store for all views
 storeApp.factory("DataService", function () {
-    var myStore = new store();
-    var myCart = new shoppingCart("AngularStore");
+  var myStore = new store();
+  var myCart = new shoppingCart("AngularStore");
 
-   myCart.addCheckoutParameters("PayPal", "madhuriunde123@gmail.com");
-    return {
-        store: myStore,
-        cart: myCart
-    };
+  // enable PayPal checkout
+  myCart.addCheckoutParameters("PayPal", "madhuriunde123@gmail.com");
+
+  // return data object with store and cart
+  return {
+    store: myStore,
+    cart: myCart
+  };
 });
