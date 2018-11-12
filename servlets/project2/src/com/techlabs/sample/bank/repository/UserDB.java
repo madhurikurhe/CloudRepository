@@ -23,7 +23,9 @@ public class UserDB {
 			stmt.setString(2, password);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
+				System.out.println("inside check user");
 				return true;
+				
 			}
 
 		} catch (SQLException ex) {
@@ -43,6 +45,7 @@ public class UserDB {
 			stmt.setString(2, password);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
+			System.out.println("Inside checkadmin");
 				return true;
 			}
 

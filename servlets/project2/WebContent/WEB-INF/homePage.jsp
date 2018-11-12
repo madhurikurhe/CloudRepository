@@ -40,7 +40,7 @@ th {
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/header.jsp" />
+	<jsp:include page="/WEB-INF/Adminheader.jsp" />
 	<div>
 		<table class="table table-light table-striped table-hover">
 			<tr>
@@ -49,7 +49,7 @@ th {
 
 			</tr>
 			<%
-				List<Account> accounts = (List) request.getAttribute("accountList");
+				List<Account> accounts = (List) request.getAttribute("customerList");
 				if (accounts.isEmpty()) {
 			%>
 			<tr>

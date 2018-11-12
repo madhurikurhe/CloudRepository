@@ -36,9 +36,15 @@ public class LoginController extends HttpServlet {
 		String password = request.getParameter("pwd");
 
 		if (accountService.checkUser(name, password)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("name", name);
-			response.sendRedirect("WelcomePage");
+			if (name.equals("admin")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("name", name);
+				response.sendRedirect("AdminWelcomeController");
+			} else {
+				HttpSession session = request.getSession();
+				session.setAttribute("name", name);
+				response.sendRedirect("WelcomePage");
+			}
 		} else {
 			request.setAttribute("error",
 					"invalid name or password, if new user please register");
@@ -47,4 +53,5 @@ public class LoginController extends HttpServlet {
 			view.forward(request, response);
 		}
 	}
+
 }

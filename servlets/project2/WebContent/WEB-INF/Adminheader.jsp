@@ -34,8 +34,8 @@
 				<%
 					if (loggedIn) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="makeTransaction">Show All</a></li>
-				<li class="nav-item"><a class="nav-link" href="makeCSV">Show Active</a></li>
+				<li class="nav-item"><a class="nav-link" href="AdminController">Show All Customer</a></li>
+				<li class="nav-item"><a class="nav-link" href="ShowActive">Show Active Customers</a></li>
 				<%
 					}
 				%>

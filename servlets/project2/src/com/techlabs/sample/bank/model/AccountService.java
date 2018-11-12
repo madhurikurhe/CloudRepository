@@ -14,11 +14,15 @@ public class AccountService {
 	}
 
 	public boolean checkUser(String name, String password) {
-		return userService.checkUser(name, password);
-	}
-
-	public boolean checkAdminr(String name, String password) {
-		return userService.checkAdmin(name, password);
+		if (name.equals("admin")) {
+			boolean s1 = userService.checkAdmin(name, password);
+			System.out.println(s1);
+			return s1;
+		} else {
+			boolean s1 = userService.checkUser(name, password);
+			System.out.println(s1);
+			return s1;
+		}
 	}
 
 	public double getBalance(String name) {
